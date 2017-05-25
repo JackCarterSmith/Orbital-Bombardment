@@ -1,0 +1,15 @@
+[
+{
+  "modid": "ob",
+  "version": "2.0",
+  "name": "Orbital Bombardment",
+  "description": "Simple portage sur la 1.7.10",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["JackCarterSmith"],
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

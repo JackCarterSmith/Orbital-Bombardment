@@ -1,0 +1,7 @@
+04/July/2016:
+- First import to github
+- Fix chat occurence to 1.7.10
+
+05/July/2016
+- Add new 3D world and inventory render for blocks
+- Delete unused files
