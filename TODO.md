@@ -1,0 +1,41 @@
+- [ ] Mettre à jour le gestion de la détection du tir: part du bloc le plus
+haut en coordonnée Y, descends un par un et le premier bloc touché serra
+celui qui subira l'explosion.
+- [ ] Implémanter 3 tailles différentes de laser, 1 pour le Low, 2 pour le Med et 3 pour le High
+- [ ] Rendre plus difficile d'accès le Med et le High
+- [ ] Craft de plusieurs satellites plus complexe, mais à différentes durée de vie.
+- [ ] Ajout du bloc brouilleur, impossible de demander un tir ou de tirer dans
+ça zone d'action
+- [ ] Ajout du bloc relais, permet de communiquer avec un satellite en orbite
+(remplace l'overrider actuel), permet de précisé les coordonées de tir manuel,
+la désactivation du satellite (pouvant être hacké, offrant alors la possibilité de changer
+les sets de réglages et déraglant ainsi la visée, rendant le satellite hors d'état,
+il peut être reconfiguré soit en résolvant un casse-tête soit en purgeant l'énergie
+du satellite se qui prends 1min par 1000PU)
+- [ ] Ajout du bloc surchargeur(en combinaison de relais) + identifiant propre à chaque satellite en orbite
+Si un joueur souhaite détruire son satellite, il précise l'identifiant et 
+contre une grande quantité d'énergie, surcharge le satellite et le détruit
+- [ ] Ajout de la fusée, remplace l'ancier moyen de deploiement des satellites
+- [ ] Ajout du scanner, scan dans son rayon d'action toute créatures hostiles dans
+un certain rayon et les désintègres s'il est activé, attention les mobs ne looterons
+rien car désintégrés, la vitesse de tir et cependant limité selon les modèles de sat
+Quasi instantanée pour la version créa
+- [ ] Modification du système de prodution de photon:
+Il n'y aura plus de générateur de photon, ni d'emetteur, ni de recepteur
+Plusieurs classes de satellite chaque avec des capacités de plus en plus
+puissantes selon la classe: Niveau 1 - Defense seulement + lightning
+			    Niveau 2 - Defense et attaque de petit niveau (creeper boom)
+			    Niveau 3 - 2 + Penetring strike + plus de puissance
+			    Niveau X(Crea seulement) - Meteor spawner, et super laser !
+- [ ] Ajout de dysfonctionnement du satellite temporaire (réglable) désactivant une certain fonction
+cela peut touché: la chambre de tir, les panneaux solaires, les batteries ou le système de visée
+- [ ] Un satellite ne peut couvrir qu'une zone de 1000 blocs (sauf créa)
+- [ ] Ajout d'une bombe à régéneration, elle permet de regenerer un chunk entier contre 16 enderpearl
+et d'une énorme quantité d'énergie !
+- [ ] Ajout du satellite de soin, crafté à partir d'une étoile du nether tir 
+un rayon de soin instantané pour le propriétaire/cible contre de lénergie dans 
+celui-ci, limité cependant à 100 coeurs, peut être recharger à l'aide 
+d'une étoile du nether
+- [ ] EasterEgg: un tir d'un satellite de soin avec 100 coeurs en réserve sur une
+bombe à régénération à pleine puissance, créer une balise
+régénératrice de santé illimité mais elle détruit cependant le satellite 
