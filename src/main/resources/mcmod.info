@@ -1,15 +1,15 @@
 [
 {
-  "modid": "ob",
-  "version": "2.0",
-  "name": "Orbital Bombardment",
-  "description": "Simple portage sur la 1.7.10",
+  "modid": "orbsat",
+  "name": "Orbital Satellite",
+  "description": "Big laser, big construct, big boom !",
+  "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["JackCarterSmith"],
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": ["CompatLayer"]
 }
 ]
