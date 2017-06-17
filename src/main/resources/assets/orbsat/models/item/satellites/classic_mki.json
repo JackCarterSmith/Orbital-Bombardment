@@ -1,5 +1,5 @@
 {
-    "parent": "item/generated",
+    "parent": "orbsat:item/flat",
     "textures": {
         "layer0": "orbsat:items/classicSatellite_mki"
     }

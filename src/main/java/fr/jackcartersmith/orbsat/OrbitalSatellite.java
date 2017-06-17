@@ -34,6 +34,7 @@ public class OrbitalSatellite {
 	{
 		OSLogger.info("[OrbSAT] Connection of primary laser chamber...");
 		OSItems.init();
+		OSBlocks.init();
 		proxy.preInit();
 	}
 	@Mod.EventHandler
@@ -112,7 +113,7 @@ public class OrbitalSatellite {
 		@Override
 		public ItemStack getIconItemStack()
 		{
-			return new ItemStack(OSItems.satelliteItem,1,0);
+			return new ItemStack(OSItems.componentsItem,1,1);
 		}
 	};
 }

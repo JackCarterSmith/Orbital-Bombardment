@@ -1,0 +1,6 @@
+{
+	"parent": "orbsat:item/flat",
+	"textures": {
+		"layer0": "orbsat:items/photonLens"
+	}
+}

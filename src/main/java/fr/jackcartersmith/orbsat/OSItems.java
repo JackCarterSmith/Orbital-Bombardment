@@ -7,8 +7,9 @@ public class OSItems {
 	public static ItemOSBase satelliteItem;
 	
 	public static void init(){
-		componentsItem = new ItemOSBase("components",1,
-				"laserDesignator","designatorCircuit");
+		componentsItem = new ItemOSBase("components",3,
+				"laserDesignator","designatorCircuit",
+				"photonLens","photonConcentrator","photonCapacitor");
 		satelliteItem = new ItemOSBase("satellites",1,
 				"classic_mki","classic_mkii","classic_mkiii");
 	}	

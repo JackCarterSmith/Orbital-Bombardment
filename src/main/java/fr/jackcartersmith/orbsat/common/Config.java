@@ -9,8 +9,8 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.google.common.collect.Maps;
-
+import fr.jackcartersmith.orbsat.OSRefs;
+import fr.jackcartersmith.orbsat.common.Config.OSConfig.Machines;
 import fr.jackcartersmith.orbsat.common.util.OSLogger;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Config.Comment;
@@ -25,7 +25,7 @@ public class Config {
 
 	public static boolean seaonal_festive = false;
 
-	@net.minecraftforge.common.config.Config(modid="orbsat")
+	@net.minecraftforge.common.config.Config(modid=OSRefs.MODID)
 	public static class OSConfig
 	{
 		//Wire Stuff
@@ -42,7 +42,10 @@ public class Config {
 		public static int[] wireLength = new int[]{16, 16, 32, 32, 32, 32};
 
 		@Comment({"By default all devices that accept cables have increased renderbounds to show cables even if the block itself is not in view.", "Disabling this reduces them to their minimum sizes, which might improve FPS on low-power PCs"})
+		//TODO this is for TESR wires. Remove?
 		public static boolean increasedRenderboxes = true;
+		@Comment({"Disables most lighting code for certain models that are rendered dynamically (TESR). May improve FPS.", "Affects turrets and garden cloches"})
+		public static boolean disableFancyTESR = false;
 		@Comment({"Support for colourblind people, gives a text-based output on capacitor sides"})
 		public static boolean colourblindSupport = false;
 		@Comment({"Set this to false to disable the super awesome looking nixie tube front for the voltmeter and other things"})
@@ -55,6 +58,8 @@ public class Config {
 		public static boolean oreTooltips = true;
 		@Comment({"Increase the distance at which certain TileEntities (specifically windmills) are still visible. This is a modifier, so set it to 1 for default render distance, to 2 for doubled distance and so on."})
 		public static double increasedTileRenderdistance = 1.5;
+		@Comment({"A list of preferred Mod IDs that results of IE processes should stem from, aka which mod you want the copper to come from.", "This affects the ores dug by the excavator, as well as those crushing recipes that don't have associated IE items. This list is in oreder of priority."})
+		public static String[] preferredOres = new String[]{OSRefs.MODID};
 		@Comment({"Set this to false to hide the update news in the manual"})
 		public static boolean showUpdateNews = true;
 		@Comment({"Set this to false to stop the IE villager house from spawning"})
@@ -63,7 +68,6 @@ public class Config {
 		public static boolean enableVillagers = true;
 		@Comment({"The weight that hempseeds have when breaking tall grass. 5 by default, set to 0 to disable drops"})
 		public static int hempSeedWeight = 5;
-
 
 		public static Machines machines = new Machines();
 		public static Ores ores = new Ores();
@@ -269,8 +273,6 @@ public class Config {
 			public static boolean retrogen_log_flagChunk = true;
 			@Comment({"Set this to false to disable the logging of the chunks that are still left to retrogen."})
 			public static boolean retrogen_log_remaining = true;
-			@Comment({"The retrogeneration key. Basically IE checks if this key is saved in the chunks data. If it isn't, it will perform retrogen on all ores marked for retrogen.", "Change this in combination with the retrogen booleans to regen only some of the ores."})
-			public static String retrogen_key = "DEFAULT";
 		}
 
 
@@ -323,6 +325,8 @@ public class Config {
 		Calendar calendar = Calendar.getInstance();
 		seaonal_festive = calendar.get(Calendar.MONTH)+1==12;//December
 
+		Config.manual_int.put("excavator_depletion_days", Machines.excavator_depletion*45/24000);
+		Config.manual_bool.put("literalRailGun", false);//preventive measure for Railcraft
 		checkMappedValues(OSConfig.class);
 	}
 

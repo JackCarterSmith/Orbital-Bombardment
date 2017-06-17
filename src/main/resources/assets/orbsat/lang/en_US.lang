@@ -3,6 +3,9 @@ itemGroup.orbsat=Orbital Satellite
 #Items
 item.orbsat.components.laserDesignator.name=Targeting Satellite Computer
 item.orbsat.components.designatorCircuit.name=Targeting Computer Circuit
+item.orbsat.components.photonLens.name=Lens
+item.orbsat.components.photonConcentrator.name=Photon Concentrator
+item.orbsat.components.photonCapacitor.name=Photon Capacitor
 item.orbsat.satellites.classic_mki.name=Classic Laser Satellite MK-I
 item.orbsat.satellites.classic_mkii.name=Classic Laser Satellite MK-II
 item.orbsat.satellites.classic_mkiii.name=Classic Laser Satellite MK-III
