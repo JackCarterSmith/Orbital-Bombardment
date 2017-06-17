@@ -3,6 +3,7 @@ package fr.jackcartersmith.orbsat.client;
 import fr.jackcartersmith.orbsat.OSRefs;
 import fr.jackcartersmith.orbsat.common.CommonProxy;
 import fr.jackcartersmith.orbsat.common.util.OSLogger;
+import fr.jackcartersmith.orbsat.item.ItemOSBase;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -25,12 +26,29 @@ public class ClientProxy extends CommonProxy{
 		for(Item item : OSRefs.registeredOSItems)
 		{
 			if(item instanceof Item)
-			{
-				OSLogger.debug("[OrbSAT] Register render for "+item.getUnlocalizedName().substring(5));
-				final ResourceLocation loc = new ResourceLocation(OSRefs.MODID, item.getUnlocalizedName().substring(5));
-				
-				ModelBakery.registerItemVariants(item, loc);
-				ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(loc, "inventory"));
+			{	
+				ItemOSBase ieMetaItem = (ItemOSBase) item;
+				if(ieMetaItem.registerSubModels && ieMetaItem.getSubNames() != null && ieMetaItem.getSubNames().length > 0)
+				{
+					for(int meta = 0; meta < ieMetaItem.getSubNames().length; meta++)
+					{
+						ResourceLocation loc = new ResourceLocation("orbsat", ieMetaItem.itemName + "/" + ieMetaItem.getSubNames()[meta]);
+						ModelBakery.registerItemVariants(ieMetaItem, loc);
+						ModelLoader.setCustomModelResourceLocation(ieMetaItem, meta, new ModelResourceLocation(loc, "inventory"));
+					}
+				} else
+				{
+					final ResourceLocation loc = new ResourceLocation("orbsat", ieMetaItem.itemName);
+					ModelBakery.registerItemVariants(ieMetaItem, loc);
+					ModelLoader.setCustomMeshDefinition(ieMetaItem, new ItemMeshDefinition()
+					{
+						@Override
+						public ModelResourceLocation getModelLocation(ItemStack stack)
+						{
+							return new ModelResourceLocation(loc, "inventory");
+						}
+					});
+				}
 			} 
 			else
 			{

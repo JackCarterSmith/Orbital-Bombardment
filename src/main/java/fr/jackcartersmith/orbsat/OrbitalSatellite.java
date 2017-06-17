@@ -18,7 +18,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.common.registry.IForgeRegistryEntry;
 
-@Mod(modid=OSRefs.MODID, name=OSRefs.NAME, version=OSRefs.VERSION, dependencies = "required-after:Forge@[12.18.3.2185,)", useMetadata = true)
+@Mod(modid=OSRefs.MODID, name=OSRefs.NAME, version=OSRefs.VERSION, dependencies = "required-after:Forge@[12.18.3.2185,)")
 public class OrbitalSatellite {	
 	
 	@Mod.Instance(OSRefs.MODID)
@@ -112,7 +112,7 @@ public class OrbitalSatellite {
 		@Override
 		public ItemStack getIconItemStack()
 		{
-			return new ItemStack(OSItems.designatorCircuit,1,0);
+			return new ItemStack(OSItems.satelliteItem,1,0);
 		}
 	};
 }

@@ -1,16 +1,15 @@
 package fr.jackcartersmith.orbsat;
 
-import fr.jackcartersmith.orbsat.item.DesignatorCircuitItem;
-import fr.jackcartersmith.orbsat.item.LaserDesignatorItem;
-import net.minecraft.item.Item;
+import fr.jackcartersmith.orbsat.item.ItemOSBase;
 
 public class OSItems {
-	
-	public static Item laserDesignator;
-	public static Item designatorCircuit;
+	public static ItemOSBase componentsItem;
+	public static ItemOSBase satelliteItem;
 	
 	public static void init(){
-		laserDesignator = new LaserDesignatorItem("laserDesignator");
-		designatorCircuit = new DesignatorCircuitItem("designatorCircuit");
+		componentsItem = new ItemOSBase("components",1,
+				"laserDesignator","designatorCircuit");
+		satelliteItem = new ItemOSBase("satellites",1,
+				"classic_mki","classic_mkii","classic_mkiii");
 	}	
 }

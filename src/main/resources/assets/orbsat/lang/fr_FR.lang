@@ -1,5 +1,8 @@
 #CreativeTabs
 itemGroup.orbsat=Satellite Orbital
 #Items
-item.laserDesignator.name=Ordinateur de visée du satellite
-item.designatorCircuit.name=Circuit pour ordinateur de visée
+item.orbsat.components.laserDesignator.name=Ordinateur de visée du satellite
+item.orbsat.components.designatorCircuit.name=Circuit pour ordinateur de visée
+item.orbsat.satellites.classic_mki.name=Satellite classique de frappe laser MK-I
+item.orbsat.satellites.classic_mkii.name=Satellite classique de frappe laser MK-II
+item.orbsat.satellites.classic_mkiii.name=Satellite classique de frappe laser MK-III
