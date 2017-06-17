@@ -2,61 +2,61 @@
   "defenderLock": {
     "category": "block",
     "sounds": [
-      "defenderLock"
+      "orbsat:defenderLock"
     ]
   },
   "start": {
     "category": "block",
     "sounds": [
-      "start"
+      "orbsat:start"
     ]
   },
   "middle": {
     "category": "block",
     "sounds": [
-      "middle"
+      "orbsat:middle"
     ]
   },
   "satelliteLaunch": {
     "category": "block",
     "sounds": [
-      "satelliteLaunch"
+      "orbsat:satelliteLaunch"
     ]
   },
   "explode": {
     "category": "block",
     "sounds": [
-      "explode"
+      "orbsat:explode"
     ]
   },
   "reentry": {
     "category": "block",
     "sounds": [
-      "reentry"
+      "orbsat:reentry"
     ]
   },
   "booming": {
     "category": "block",
     "sounds": [
-      "booming"
+      "orbsat:booming"
     ]
   },
   "digging": {
     "category": "block",
     "sounds": [
-      "digging"
+      "orbsat:digging"
     ]
   },
   "startCharging": {
     "category": "block",
     "sounds": [
-      "startCharging"
+      "orbsat:startCharging"
     ]
   },
   "helios": {
     "category": "block",
     "sounds": [
-      "helios"
+      "orbsat:helios"
     ]
   }
 }

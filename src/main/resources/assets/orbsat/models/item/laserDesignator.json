@@ -1,6 +1,6 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "orbsat:items/laserDesignator_mki"
+		"layer0": "orbsat:items/laserDesignator"
 	}
 }

@@ -112,7 +112,7 @@ public class OrbitalSatellite {
 		@Override
 		public ItemStack getIconItemStack()
 		{
-			return new ItemStack(OSItems.laserDesignator_mkI,1,0);
+			return new ItemStack(OSItems.designatorCircuit,1,0);
 		}
 	};
 }

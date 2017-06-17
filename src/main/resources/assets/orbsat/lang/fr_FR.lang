@@ -1,23 +1,5 @@
-#item.item_ob_lense.name=Lentille
-#item.item_ob_condenser.name=Condensateur Photonique
-#item.item_ob_capacitor.name=Capaciteur Photonique
-#item.item_ob_designatorLow.name=Designateur Faible Puissance
-#item.item_ob_designatorMed.name=Designateur Moyenne Puissance
-#item.item_ob_designatorHigh.name=Designateur Haute Puissance
-#item.item_ob_laserGunLow.name=Pointeur Laser Faible Puissance
-#item.item_ob_laserGunMed.name=Pointeur Laser Moyenne Puissance
-#item.item_ob_laserGunHigh.name=Pointeur Laser Haute Puissance
-#tile.obOverrider.name=Chargeur de Satellite Laser
-#tile.obExtender.name=Extendeur
-#tile.obSatelite.name=Prototype de Satellite Laser LX-I
-#tile.obDefender.name=Defenseur Laser
-#tile.obAccelerator.name=Accelerateur de photon
-#tile.obDecelerator.name=Decelerateur de photon
-#tile.obInverterAdv.name=Convertisseur photonique avancé
-#tile.obInverter.name=Convertisseur photonique
-
 #CreativeTabs
-itemGroup.orbsat.name=Satellite Orbital
-
+itemGroup.orbsat=Satellite Orbital
 #Items
-item.laserDesignator_mki.name=Pointeur Laser MK-I
+item.laserDesignator.name=Ordinateur de visée du satellite
+item.designatorCircuit.name=Circuit pour ordinateur de visée
