@@ -1,3 +1,33 @@
+A faire prochainement :
+- [ ] Faire un item Satellite et y ajouter des 'metadata' pour différents types de Satellite
+(pour commencer en faire 3 : Low, Med, High)
+- [ ] Un seul ordinateur de visée permet de tirer soit en cliquant sur le bloc, soit en spécifiant
+des coordonnées. Upgrades à prévoir.
+- [ ] Un satellite = un ID, le satellite est lancé avec une fusée, lors du lancement le joueur
+recoit une plaque avec l'ID du satellite.
+- [ ] Ajout de la centrale de controle satellite, multiblock, avec parabole et clignotement (si possible)
+permet à partir de la plaque ID du satellite d'en prendre le contrôle et demander des missions de tir à
+des coordonnées specs.
+- [ ] On doit lier l'ordinateur de visée à la centrale pour pouvoir lier le satellite à l'ordinateur,
+si la centrale n'a plus d'énergie ou si elle est détruite, l'ordinateur ne peux plus demander de frappe.
+- [ ] Si l'ordinateur est équippé du module 'HyperSpace Communicator', il est indépendant de la centrale.
+Cependant la frappe est imprécise à +- 10 blocs, de plus il y a 40% de chance que la demande échoue mais
+consomme quand même de la batterie à l'ordinateur.
+- [ ] Après chaque tir, selon le type de satellite, il y a un temps de rechargement/refroidissement entre
+un autre tir.
+- [ ] Update secret : Remplacer les coordonées X Y Z par les 3 parties de l'ID d'un satellite, ce dernier
+est détruit si la centrale ordonne le tir et s'il n'est pas pourvu de bouclier.
+- [ ] Ajout générateur de bouclier, un générateur = un satellite.
+- [ ] Ajout d'un bouton d'autodestruction sur la centrale
+- [ ] Tous satellites n'ayant pas reçu de connection au bout de 7j minecraftiens sera automatiquement détruis
+- [ ] Ajout d'une structure auto-générer de satellite crashé d'un ancien temps, loot de pièce et d'upgrade
+pour satellites dedans, rarité 1 pour un carré de 5 chucks
+- [ ] Ajout d'un constructeur de satellite avec une table de craft bien spécifique pour customisé son satellite
+
+
+
+Liste d'idées :
+---------------
 - [ ] Mettre à jour le gestion de la détection du tir: part du bloc le plus
 haut en coordonnée Y, descends un par un et le premier bloc touché serra
 celui qui subira l'explosion.
