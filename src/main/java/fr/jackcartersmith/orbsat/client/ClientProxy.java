@@ -6,6 +6,7 @@ import fr.jackcartersmith.orbsat.OSRefs;
 import fr.jackcartersmith.orbsat.block.OSBlockInterface.IOSMetaBlock;
 import fr.jackcartersmith.orbsat.common.CommonProxy;
 import fr.jackcartersmith.orbsat.item.ItemOSBase;
+import fr.jackcartersmith.orbsat.models.obj.OSOBJLoader;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemMeshDefinition;
@@ -15,18 +16,18 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.model.ModelLoaderRegistry;
+import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.fml.common.registry.GameData;
 
 public class ClientProxy extends CommonProxy{
 	
 	@Override
-	public void registerRender(){
-		
-	}
-	
-	@Override
 	public void preInit(){
 		Minecraft.getMinecraft().getFramebuffer().enableStencil();//Enabling FBO stencils
+		ModelLoaderRegistry.registerLoader(OSOBJLoader.instance);
+		OBJLoader.INSTANCE.addDomain(OSRefs.MODID);
+		OSOBJLoader.instance.addDomain(OSRefs.MODID);
 		
 		for(Block block : OSRefs.registeredOSBlocks)
 		{
