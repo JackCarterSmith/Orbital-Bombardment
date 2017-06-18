@@ -1,51 +1,29 @@
 buildscript {
     repositories {
-        jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
     }
 }
-apply plugin: 'net.minecraftforge.gradle.forge'
-//Only edit below this line, the above code adds and enables the nessasary things for Forge to be setup.
 
+apply plugin: 'forge'
 
 version = "0.1"
 group= "fr.jackcartersmith.orbsat" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "orbsat"
 
-sourceCompatibility = targetCompatibility = "1.8" // Need this here so eclipse task generates correctly.
-compileJava {
-    sourceCompatibility = targetCompatibility = "1.8"
-}
-
 minecraft {
-    version = "12.18.3.2185"
-	mappings = "snapshot_20161111"
-    runDir = "run"
-    
-    // the mappings can be changed at any time, and must be in the following format.
-    // snapshot_YYYYMMDD   snapshot are built nightly.
-    // stable_#            stables are built at the discretion of the MCP team.
-    // Use non-default mappings at your own risk. they may not allways work.
-    // simply re-run your setup task after changing the mappings to update your workspace.
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
-}
-
-repositories {
-    maven { // WAILA
-        name "ProfMobius Maven FS"
-        url "http://mobiusstrip.eu/maven"
-    }
-    maven { // OpenComputers
-        name "OpenComputers"
-        url "http://maven.cil.li/"
-    }
-	// maven { // McJty's CompatLayer
-    //     name 'K4 maven'
-    //     url "http://maven.k-4u.nl/"
-    // }
+    version = "1.7.10-10.13.4.1558-1.7.10"
+    runDir = "eclipse"
 }
 
 dependencies {
@@ -58,21 +36,10 @@ dependencies {
     //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
     //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
 
-    // the 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
-    //provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
-    // except that these dependencies get remapped to your current MCP mappings
-    //deobfCompile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-    //deobfProvided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
-	// deobfCompile "com.github.mcjty:compatlayer:1.10-0.+"
-	deobfCompile "li.cil.oc:OpenComputers:MC1.10.2-1.6.0.+"
-	deobfCompile "mcp.mobius.waila:Waila:1.7.0-B3_1.9.4"
 }
 
 processResources
