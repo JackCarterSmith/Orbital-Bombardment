@@ -34,12 +34,12 @@
 			"east": "orbsat:blocks/device_base"}
 		}],
 		"inventory,type=satellite_assembler": [{
-			"model": "orbsat:blastfurnace_preheater.obj",
+			"model": "orbsat:satellite_assembler.obj",
 			"custom": {"flip-v": true},
 			"transform": {
 				"scale": [ 0.1875, 0.1875, 0.1875 ],
-				"firstperson_righthand": { "scale": [ 0.75, 0.75, 0.75 ], "rotation": [{ "y": 180 }] },
-				"firstperson_lefthand": { "scale": [ 0.75, 0.75, 0.75 ], "rotation": [{ "y": 180 }] },
+				"firstperson_righthand": { "scale": [ 0.75, 0.75, 0.75 ], "rotation": [{ "y": 90 }] },
+				"firstperson_lefthand": { "scale": [ 0.75, 0.75, 0.75 ], "rotation": [{ "y": 90 }] },
 				"thirdperson_righthand": { "translation": [ 0, 0.09375, -0.171875 ], "rotation": [{ "x": 70 }, { "y": 70 }] },
 				"thirdperson_lefthand": { "translation": [ 0, 0.09375, -0.171875 ], "rotation": [{ "x": 70 }, { "y": 70 }] },
 				"fixed": {"scale": [ 2,2,2 ], "translation": [ 0, -0.25, 0 ], "rotation": [{ "y": 0 }]},
@@ -47,7 +47,7 @@
 			}
 		}],
 		"type=satellite_assembler": {
-			"model": "orbsat:blastfurnace_preheater.obj",
+			"model": "orbsat:satellite_assembler.obj",
 			"custom": { "flip-v": true }
 		},
 		"type=satellite_launcher": {"parent":"block/cube_all", "textures": {

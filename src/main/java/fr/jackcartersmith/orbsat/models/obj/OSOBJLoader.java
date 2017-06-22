@@ -31,7 +31,7 @@ public class OSOBJLoader implements ICustomModelLoader{
 	@Override
 	public boolean accepts(ResourceLocation modelLocation)
 	{
-		return enabledDomains.contains(modelLocation.getResourceDomain()) && modelLocation.getResourcePath().endsWith(".obj.ie");
+		return enabledDomains.contains(modelLocation.getResourceDomain()) && modelLocation.getResourcePath().endsWith(".obj.adv");
 	}
 
 	@Override
@@ -43,8 +43,8 @@ public class OSOBJLoader implements ICustomModelLoader{
 			IModel model = OBJLoader.INSTANCE.loadModel(modelLocation);
 			if(model instanceof OBJModel)
 			{
-				OSOBJModel ieobj = new OSOBJModel(((OBJModel)model).getMatLib(), file);
-				cache.put(modelLocation, ieobj);
+				OSOBJModel osobj = new OSOBJModel(((OBJModel)model).getMatLib(), file);
+				cache.put(modelLocation, osobj);
 			}
 		}
 		OSOBJModel model = cache.get(file);
