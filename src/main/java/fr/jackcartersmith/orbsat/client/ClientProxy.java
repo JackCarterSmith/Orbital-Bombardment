@@ -12,7 +12,11 @@ import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import fr.jackcartersmith.orbsat.client.handler.ClientEventHandler;
 import fr.jackcartersmith.orbsat.client.handler.ParticleHandler;
 import fr.jackcartersmith.orbsat.client.handler.ResourceHandler;
+import fr.jackcartersmith.orbsat.client.render.block.RenderDefender;
+import fr.jackcartersmith.orbsat.client.render.tile.RenderTileDefender;
 import fr.jackcartersmith.orbsat.common.CommonProxy;
+import fr.jackcartersmith.orbsat.common.OSBlocks;
+import fr.jackcartersmith.orbsat.common.tileentities.TileDefender;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.ISound;
 import net.minecraft.client.particle.EntityFX;
@@ -53,6 +57,12 @@ public class ClientProxy extends CommonProxy {
     }
     
     public void registerRendering() {
+    	//Item Renderers
+    	MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(OSBlocks.defender), new RenderDefender());
+    	
+        //TileEntitySpecialRenderers
+        ClientRegistry.bindTileEntitySpecialRenderer(TileDefender.class, new RenderTileDefender());
+    	
     	/*
         //Item Renderers
         MinecraftForgeClient.registerItemRenderer(ModItems.wyvernBow, new RenderBow());

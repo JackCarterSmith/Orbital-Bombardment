@@ -3,8 +3,11 @@ package fr.jackcartersmith.orbsat.common;
 import cpw.mods.fml.common.registry.GameRegistry;
 import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import fr.jackcartersmith.orbsat.common.blocks.BlockOS;
+import fr.jackcartersmith.orbsat.common.blocks.Defender;
 import fr.jackcartersmith.orbsat.common.lib.OSRefs;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
 @GameRegistry.ObjectHolder(OSRefs.MODID)
@@ -22,6 +25,10 @@ public class OSBlocks {
    public static BlockOS laserDef;
    
    public static void init(){
+	   defender = new Defender();
+	   
+	   
+	   
 	   
 	   /*
 	   laserLow = new LaserLowBlock(Material.fire).setBlockName("obLaserLow").setBlockTextureName(OSRefs.MODID + ":laserLow").setHardness(-1.0F).setResistance(-1.0F).setLightLevel(25.0F);;
@@ -86,5 +93,23 @@ public class OSBlocks {
 
         resurrectionStone = new ItemStack(ModBlocks.draconiumBlock, 1, 1);
 		*/
+   }
+   
+   public static void register(BlockOS block) {
+       String name = block.getUnwrappedUnlocalizedName(block.getUnlocalizedName());
+       //if (isEnabled(block)) GameRegistry.registerBlock(block, name.substring(name.indexOf(":") + 1));
+       GameRegistry.registerBlock(block, name.substring(name.indexOf(":") + 1));
+   }
+
+   public static void register(BlockOS block, Class<? extends ItemBlock> item) {
+       String name = block.getUnwrappedUnlocalizedName(block.getUnlocalizedName());
+       //if (isEnabled(block)) GameRegistry.registerBlock(block, item, name.substring(name.indexOf(":") + 1));
+       GameRegistry.registerBlock(block, item, name.substring(name.indexOf(":") + 1));
+   }
+
+   public static void registerOther(Block block) {
+       String name = block.getUnlocalizedName().substring(block.getUnlocalizedName().indexOf(".") + 1);
+       //if (isEnabled(block)) GameRegistry.registerBlock(block, name.substring(name.indexOf(":") + 1));
+       GameRegistry.registerBlock(block, name.substring(name.indexOf(":") + 1));
    }
 }

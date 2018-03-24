@@ -14,6 +14,7 @@ import fr.jackcartersmith.orbsat.client.gui.OSGuiHandler;
 import fr.jackcartersmith.orbsat.common.handler.FMLEventHandler;
 import fr.jackcartersmith.orbsat.common.lib.OSConstants;
 import fr.jackcartersmith.orbsat.common.lib.OSRefs;
+import fr.jackcartersmith.orbsat.common.tileentities.TileDefender;
 import fr.jackcartersmith.orbsat.common.utils.OSLogHelper;
 import net.minecraft.client.audio.ISound;
 import net.minecraft.entity.player.EntityPlayer;
@@ -81,7 +82,7 @@ public class CommonProxy {
     }
     
     public void registerTileEntities() {
-    	//GameRegistry.registerTileEntity(DefenderTileEntity.class, OSRefs.RESOURCESPREFIX + "TileDefender");
+    	GameRegistry.registerTileEntity(TileDefender.class, OSRefs.RESOURCESPREFIX + "TileDefender");
     	
     	
     	

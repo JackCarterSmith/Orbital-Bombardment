@@ -1,7 +1,6 @@
 package fr.jackcartersmith.orbsat.common;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import fr.jackcartersmith.orbsat.common.items.AdvancedExtrapolCircuit;
 import fr.jackcartersmith.orbsat.common.items.AdvancedTargetDevice;
 import fr.jackcartersmith.orbsat.common.items.BasicExtrapolCircuit;
@@ -13,8 +12,6 @@ import fr.jackcartersmith.orbsat.common.items.PhotonCapacitor;
 import fr.jackcartersmith.orbsat.common.items.PhotonLense;
 import fr.jackcartersmith.orbsat.common.items.PhotonCondenser;
 import fr.jackcartersmith.orbsat.common.lib.OSRefs;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 
 @GameRegistry.ObjectHolder(OSRefs.MODID)
 public class OSItems{

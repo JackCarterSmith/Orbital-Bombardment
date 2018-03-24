@@ -10,4 +10,6 @@ public class OSStrings {
     public static final String basicTargetDeviceName = "basicTargetDevice";
     public static final String advancedTargetDeviceName = "advancedTargetDevice";
     public static final String involvedTargetDeviceName = "involvedTargetDevice";
+    
+    public static final String defenderName = "defender";
 }
