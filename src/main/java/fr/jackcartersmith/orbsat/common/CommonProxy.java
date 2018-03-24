@@ -9,17 +9,16 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
-import fr.jackcartersmith.ob.blocks.DefenderTileEntity;
-import fr.jackcartersmith.ob.entities.LaserLightEntity;
-import fr.jackcartersmith.ob.entities.MeteorEntity;
 import fr.jackcartersmith.orbsat.OrbitalSatellite;
-import fr.jackcartersmith.orbsat.client.gui.GuiHandlerForOb;
 import fr.jackcartersmith.orbsat.client.gui.OSGuiHandler;
 import fr.jackcartersmith.orbsat.common.handler.FMLEventHandler;
 import fr.jackcartersmith.orbsat.common.lib.OSConstants;
 import fr.jackcartersmith.orbsat.common.lib.OSRefs;
 import fr.jackcartersmith.orbsat.common.utils.OSLogHelper;
+import net.minecraft.client.audio.ISound;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 
 public class CommonProxy {
@@ -82,7 +81,7 @@ public class CommonProxy {
     }
     
     public void registerTileEntities() {
-    	GameRegistry.registerTileEntity(DefenderTileEntity.class, OSRefs.RESOURCESPREFIX + "TileDefender");
+    	//GameRegistry.registerTileEntity(DefenderTileEntity.class, OSRefs.RESOURCESPREFIX + "TileDefender");
     	
     	
     	
@@ -134,8 +133,8 @@ public class CommonProxy {
     
     //@Callback
     public void registerEntities() {
-	    EntityRegistry.registerModEntity(MeteorEntity.class, "meteor", 0, OrbitalSatellite.instance, 256, 3, true);
-	    EntityRegistry.registerModEntity(LaserLightEntity.class, "LaserLightEntity", 1, OrbitalSatellite.instance, 256, 3, true);
+	    //EntityRegistry.registerModEntity(MeteorEntity.class, "meteor", 0, OrbitalSatellite.instance, 256, 3, true);
+	    //EntityRegistry.registerModEntity(LaserLightEntity.class, "LaserLightEntity", 1, OrbitalSatellite.instance, 256, 3, true);
     	
     	
     	
@@ -154,5 +153,27 @@ public class CommonProxy {
         EntityRegistry.registerModEntity(EntityChaosVortex.class, "EntityChaosEnergyVortex", 10, DraconicEvolution.instance, 512, 5, true);
         EntityRegistry.registerModEntity(EntityCustomArrow.class, "CustomArrow", 11, DraconicEvolution.instance, 128, 1, true);
         */
+    }
+    
+    /*
+     * ------------- Code inspiration pour le faisceau d'energie du satellite
+     * 
+    public ParticleEnergyBeam energyBeam(World worldObj, double x, double y, double z, double tx, double ty, double tz, int powerFlow, boolean advanced, ParticleEnergyBeam oldBeam, boolean render, int beamType) {
+        return null;
+    }
+
+    public ParticleEnergyField energyField(World worldObj, double x, double y, double z, int type, boolean advanced, ParticleEnergyField oldBeam, boolean render) {
+        return null;
+    }
+
+    public ParticleReactorBeam reactorBeam(TileEntity tile, ParticleReactorBeam oldBeam, boolean render) {
+        return null;
+    }
+    */
+
+    public void spawnParticle(Object particle, int range) {}
+
+    public ISound playISound(ISound sound) {
+        return null;
     }
 }

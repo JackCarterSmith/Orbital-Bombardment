@@ -25,7 +25,7 @@ public class OrbitalSatellite
 	@SidedProxy(clientSide = OSRefs.CLIENTPROXYLOCATION, serverSide = OSRefs.SERVERPROXYLOCATION)
 	public static CommonProxy proxy;
 	
-    public static CreativeTabs OBCreativeTabs = new OSCreativeTabs(CreativeTabs.getNextID(),OSRefs.MODID);
+    public static CreativeTabs OSCreaTab = new OSCreativeTabs(CreativeTabs.getNextID(),OSRefs.MODID);
 
     public static final String networkChannelName = OSRefs.MODID;
     public static SimpleNetworkWrapper network;

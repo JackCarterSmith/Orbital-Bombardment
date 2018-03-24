@@ -21,6 +21,7 @@ public class OSGuiHandler implements IGuiHandler{
 	
 	@Override
 	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
+		/*
 		switch (id) {
         case GUIID_OVERRIDER:
             TileEntity te = world.getTileEntity(x, y, z);
@@ -49,11 +50,13 @@ public class OSGuiHandler implements IGuiHandler{
             }
             break;
 		}
+		*/
 		return null;
 	}
 
 	@Override
 	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
+		/*
 		switch (id) {
         case GUIID_OVERRIDER:
             TileEntity te = world.getTileEntity(x, y, z);
@@ -86,6 +89,7 @@ public class OSGuiHandler implements IGuiHandler{
             }
             break;
 		}
+		*/
 		return null;
 	}
 

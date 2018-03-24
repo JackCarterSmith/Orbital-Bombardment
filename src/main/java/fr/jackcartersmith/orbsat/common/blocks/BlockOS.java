@@ -1,4 +1,4 @@
-package fr.jackcartersmith.orbsat.common.block;
+package fr.jackcartersmith.orbsat.common.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

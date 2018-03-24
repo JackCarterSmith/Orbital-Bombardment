@@ -2,8 +2,8 @@ package fr.jackcartersmith.ob.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.jackcartersmith.ob.items.OBItems;
 import fr.jackcartersmith.ob.proxy.ClientProxy;
+import fr.jackcartersmith.orbsat.common.OSItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -81,17 +81,17 @@ public class LaserLowBlock extends BlockContainer
 
         try
         {
-            if (Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem().getUnlocalizedName().equals(OBItems.laserGunHighItem.getUnlocalizedName()))
+            if (Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem().getUnlocalizedName().equals(OSItems.laserGunHighItem.getUnlocalizedName()))
             {
                 color = "red";
             }
 
-            if (Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem().getUnlocalizedName().equals(OBItems.laserGunMedItem.getUnlocalizedName()))
+            if (Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem().getUnlocalizedName().equals(OSItems.laserGunMedItem.getUnlocalizedName()))
             {
                 color = "orange";
             }
 
-            if (Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem().getUnlocalizedName().equals(OBItems.laserGunLowItem.getUnlocalizedName()))
+            if (Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem().getUnlocalizedName().equals(OSItems.laserGunLowItem.getUnlocalizedName()))
             {
                 color = "blue";
             }

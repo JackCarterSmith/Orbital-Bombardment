@@ -1,9 +1,9 @@
 [
 {
-  "modid": "ob",
-  "version": "2.0",
+  "modid": "orbsat",
+  "version": "0.1",
   "name": "Orbital Bombardment",
-  "description": "Simple portage sur la 1.7.10",
+  "description": "TO DO ...",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",

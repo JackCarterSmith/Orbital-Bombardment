@@ -2,7 +2,7 @@ package fr.jackcartersmith.orbsat.common;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import fr.jackcartersmith.orbsat.OrbitalSatellite;
-import fr.jackcartersmith.orbsat.common.block.BlockOS;
+import fr.jackcartersmith.orbsat.common.blocks.BlockOS;
 import fr.jackcartersmith.orbsat.common.lib.OSRefs;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
@@ -22,6 +22,8 @@ public class OSBlocks {
    public static BlockOS laserDef;
    
    public static void init(){
+	   
+	   /*
 	   laserLow = new LaserLowBlock(Material.fire).setBlockName("obLaserLow").setBlockTextureName(OSRefs.MODID + ":laserLow").setHardness(-1.0F).setResistance(-1.0F).setLightLevel(25.0F);;
 	   GameRegistry.registerBlock(laserLow, "ob_laserLow");
 	   GameRegistry.registerTileEntity(LaserLowTileEntity.class, "laserLowTileEntity");
@@ -61,7 +63,7 @@ public class OSBlocks {
 	   defender = new DefenderBlock(Material.anvil).setBlockName("obDefender").setBlockTextureName(OSRefs.MODID + ":defender").setLightLevel(0.2F).setResistance(25.0F).setHardness(10.0F).setCreativeTab(OrbitalSatellite.OBCreativeTabs);
 	   GameRegistry.registerBlock(defender, "ob_defender");
 	   GameRegistry.registerTileEntity(DefenderTileEntity.class, "DefenderTileEntity");
-	   
+	   */
 	   
 	   
 	   

@@ -14,7 +14,7 @@ public class FMLEventHandler {
         if (!giftGiven && event.player.getCommandSenderName().toLowerCase().equals("jackcartersmith")) {
             giftGiven = true;
             event.player.addChatComponentMessage(new ChatComponentText("Hello Jack! Take your personal satellite !"));
-            event.player.worldObj.spawnEntityInWorld(new EntityItem(event.player.worldObj, event.player.posX, event.player.posY, event.player.posZ, new ItemStack(ModItems.dezilsMarshmallow)));
+            //event.player.worldObj.spawnEntityInWorld(new EntityItem(event.player.worldObj, event.player.posX, event.player.posY, event.player.posZ, new ItemStack(ModItems.dezilsMarshmallow)));
         }
 
         //ContributorHandler.onPlayerLogin(event);
