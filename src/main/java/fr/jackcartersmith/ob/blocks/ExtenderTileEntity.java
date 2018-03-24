@@ -1,8 +1,10 @@
 package fr.jackcartersmith.ob.blocks;
 
-import fr.jackcartersmith.ob.OBNetworkClient;
-import fr.jackcartersmith.ob.OrbitalBombardment;
-import fr.jackcartersmith.ob.libs.OBConstants;
+import fr.jackcartersmith.orbsat.OBNetworkClient;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
+import fr.jackcartersmith.orbsat.common.OSBlocks;
+import fr.jackcartersmith.orbsat.common.lib.OSConstants;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +22,7 @@ public class ExtenderTileEntity extends TileEntity
 
     public ExtenderTileEntity()
     {
-        this.maxCharge = OBConstants.ExtenderMaxCharge;
+        this.maxCharge = OSConstants.ExtenderMaxCharge;
     }
 
     /**
@@ -63,7 +65,7 @@ public class ExtenderTileEntity extends TileEntity
             int overriderCharge;
             int overriderMax;
 
-            if (north == OBBlocks.overrider)
+            if (north == OSBlocks.overrider)
             {
                 entity = (OverriderBlockTileEntity)par1world.getTileEntity(this.xCoord + 1, this.yCoord, this.zCoord);
                 overriderCharge = entity.getCurrentCharge();
@@ -82,7 +84,7 @@ public class ExtenderTileEntity extends TileEntity
                 }
             }
 
-            if (south == OBBlocks.overrider)
+            if (south == OSBlocks.overrider)
             {
                 entity = (OverriderBlockTileEntity)par1world.getTileEntity(this.xCoord - 1, this.yCoord, this.zCoord);
                 overriderCharge = entity.currentCharge;
@@ -101,7 +103,7 @@ public class ExtenderTileEntity extends TileEntity
                 }
             }
 
-            if (east == OBBlocks.overrider)
+            if (east == OSBlocks.overrider)
             {
                 entity = (OverriderBlockTileEntity)par1world.getTileEntity(this.xCoord, this.yCoord, this.zCoord + 1);
                 overriderCharge = entity.currentCharge;
@@ -120,7 +122,7 @@ public class ExtenderTileEntity extends TileEntity
                 }
             }
 
-            if (west == OBBlocks.overrider)
+            if (west == OSBlocks.overrider)
             {
                 entity = (OverriderBlockTileEntity)par1world.getTileEntity(this.xCoord, this.yCoord, this.zCoord - 1);
                 overriderCharge = entity.currentCharge;
@@ -139,7 +141,7 @@ public class ExtenderTileEntity extends TileEntity
                 }
             }
 
-            if (top == OBBlocks.overrider)
+            if (top == OSBlocks.overrider)
             {
                 entity = (OverriderBlockTileEntity)par1world.getTileEntity(this.xCoord, this.yCoord + 1, this.zCoord);
                 overriderCharge = entity.currentCharge;
@@ -158,7 +160,7 @@ public class ExtenderTileEntity extends TileEntity
                 }
             }
 
-            if (bottom == OBBlocks.overrider)
+            if (bottom == OSBlocks.overrider)
             {
                 entity = (OverriderBlockTileEntity)par1world.getTileEntity(this.xCoord, this.yCoord - 1, this.zCoord);
                 overriderCharge = entity.currentCharge;
@@ -195,6 +197,6 @@ public class ExtenderTileEntity extends TileEntity
         bos.add(this.zCoord);
         bos.add(this.currentCharge);
 
-        OrbitalBombardment.obNetwork.sendToAll(new OBNetworkClient(bos));
+        OrbitalSatellite.obNetwork.sendToAll(new OBNetworkClient(bos));
     }
 }

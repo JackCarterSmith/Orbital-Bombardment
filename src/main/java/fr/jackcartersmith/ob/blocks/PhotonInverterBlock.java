@@ -2,7 +2,7 @@ package fr.jackcartersmith.ob.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.jackcartersmith.ob.OrbitalBombardment;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -31,8 +31,8 @@ public class PhotonInverterBlock extends BlockContainer
      */
     public void registerBlockIcons(IIconRegister icon)
     {
-        this.topIcon = icon.registerIcon(OrbitalBombardment.MODID + ":solarPanelTop");
-        this.sideIcon = icon.registerIcon(OrbitalBombardment.MODID + ":solarPanelSides");
+        this.topIcon = icon.registerIcon(OrbitalSatellite.MODID + ":solarPanelTop");
+        this.sideIcon = icon.registerIcon(OrbitalSatellite.MODID + ":solarPanelSides");
     }
 
     @SideOnly(Side.CLIENT)
@@ -53,7 +53,7 @@ public class PhotonInverterBlock extends BlockContainer
      */
     public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
     {
-        par5EntityPlayer.openGui(OrbitalBombardment.instance, 1, par1World, par2, par3, par4);
+        par5EntityPlayer.openGui(OrbitalSatellite.instance, 1, par1World, par2, par3, par4);
         return true;
     }
 

@@ -1,9 +1,9 @@
-package fr.jackcartersmith.ob.gui;
+package fr.jackcartersmith.orbsat.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import fr.jackcartersmith.ob.OrbitalBombardment;
 import fr.jackcartersmith.ob.blocks.PhotonAcceleratorTileEntity;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,7 +33,7 @@ public class PhotonAcceleratorGui extends GuiScreen
         int posY = (this.height - 120) / 2;
         this.drawTexturedModalRect(posX, posY, 0, 0, 200, 120);
         super.drawScreen(x, y, f1);
-        PhotonAcceleratorTileEntity acceleratorTileEntity = (PhotonAcceleratorTileEntity)this.entity2.worldObj.getTileEntity(OrbitalBombardment.instance.lastGeneralX, OrbitalBombardment.instance.lastGeneralY, OrbitalBombardment.instance.lastGeneralZ);
+        PhotonAcceleratorTileEntity acceleratorTileEntity = (PhotonAcceleratorTileEntity)this.entity2.worldObj.getTileEntity(OrbitalSatellite.instance.lastGeneralX, OrbitalSatellite.instance.lastGeneralY, OrbitalSatellite.instance.lastGeneralZ);
         this.fontRendererObj.drawStringWithShadow("# Decelerators: " + acceleratorTileEntity.getListSize(), posX + 30, posY + 25, -1);
         this.fontRendererObj.drawStringWithShadow("Total output rate: " + acceleratorTileEntity.getOutputRate(), posX + 30, posY + 35, -1);
         this.fontRendererObj.drawStringWithShadow("Scaled output rate: " + acceleratorTileEntity.getScaledOutput(), posX + 30, posY + 45, -1);

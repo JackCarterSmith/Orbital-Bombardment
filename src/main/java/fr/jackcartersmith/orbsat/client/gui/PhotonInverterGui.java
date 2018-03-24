@@ -1,22 +1,21 @@
-package fr.jackcartersmith.ob.gui;
+package fr.jackcartersmith.orbsat.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import fr.jackcartersmith.ob.OrbitalBombardment;
-import fr.jackcartersmith.ob.blocks.PhotonDeceleratorTileEntity;
+import fr.jackcartersmith.orbsat.common.lib.OSConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
-public class PhotonDeceleratorGui extends GuiScreen
+public class PhotonInverterGui extends GuiScreen
 {
-    ResourceLocation texture = new ResourceLocation("OB".toLowerCase(), "textures/gui/photonDecelerator.png");
+    ResourceLocation texture = new ResourceLocation("OB".toLowerCase(), "textures/gui/photonInverter.png");
     public final int xSize = 200;
     public final int ySize = 120;
     EntityPlayer entity2;
 
-    public PhotonDeceleratorGui(EntityPlayer entity)
+    public PhotonInverterGui(EntityPlayer entity)
     {
         this.entity2 = entity;
     }
@@ -33,9 +32,7 @@ public class PhotonDeceleratorGui extends GuiScreen
         int posY = (this.height - 120) / 2;
         this.drawTexturedModalRect(posX, posY, 0, 0, 200, 120);
         super.drawScreen(x, y, f1);
-        PhotonDeceleratorTileEntity acceleratorTileEntity = (PhotonDeceleratorTileEntity)this.entity2.worldObj.getTileEntity(OrbitalBombardment.instance.lastGeneralX, OrbitalBombardment.instance.lastGeneralY, OrbitalBombardment.instance.lastGeneralZ);
-        this.fontRendererObj.drawStringWithShadow("Incoming Rate: " + acceleratorTileEntity.getPowerIncoming(), posX + 30, posY + 35, -1);
-        this.fontRendererObj.drawStringWithShadow("Scaled Power Output: " + acceleratorTileEntity.getScaledOutput(), posX + 30, posY + 45, -1);
+        this.fontRendererObj.drawStringWithShadow("Production Rate: " + OSConstants.PhotonInvChargeRate + "PU/t", posX + 30, posY + 40, -1);
     }
 
     /**

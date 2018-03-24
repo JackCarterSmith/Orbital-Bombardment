@@ -1,4 +1,4 @@
-package fr.jackcartersmith.ob;
+package fr.jackcartersmith.orbsat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -12,7 +12,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import fr.jackcartersmith.ob.blocks.OverriderBlockTileEntity;
-import fr.jackcartersmith.ob.libs.OBConstants;
+import fr.jackcartersmith.orbsat.common.lib.OSConstants;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -74,7 +74,7 @@ public class OBNetwork implements IMessage
             packet.length = bos.size();
             PacketDispatcher.sendPacketToAllPlayers(packet);
             */
-            OrbitalBombardment.obNetwork.sendToAll(new OBNetworkClient(bos));
+            OrbitalSatellite.obNetwork.sendToAll(new OBNetworkClient(bos));
         }
         
         @Override
@@ -207,7 +207,7 @@ public class OBNetwork implements IMessage
                     player.worldObj.playSoundAtEntity(player, "ob:satelliteLaunch", 1.0F, 1.0F);
                     OverriderBlockTileEntity overrider = (OverriderBlockTileEntity)player.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord);
                     overrider.shotsLeft += this.data_value;
-                    overrider.currentCharge -= OBConstants.SateliteLaunchPUCost;
+                    overrider.currentCharge -= OSConstants.SateliteLaunchPUCost;
                     this.sendChangeToClient(this.xCoord, this.yCoord, this.zCoord, this.data_value);
                 }
                 

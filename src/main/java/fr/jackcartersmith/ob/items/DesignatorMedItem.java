@@ -1,11 +1,11 @@
 package fr.jackcartersmith.ob.items;
 
-import fr.jackcartersmith.ob.OrbitalBombardment;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import net.minecraft.item.Item;
 
 public class DesignatorMedItem extends Item {
 	public DesignatorMedItem(){
-		this.setCreativeTab(OrbitalBombardment.OBCreativeTabs);
-		this.setTextureName(OrbitalBombardment.MODID + ":item_ob_designatorMed");
+		this.setCreativeTab(OrbitalSatellite.OBCreativeTabs);
+		this.setTextureName(OrbitalSatellite.MODID + ":item_ob_designatorMed");
 	}
 }

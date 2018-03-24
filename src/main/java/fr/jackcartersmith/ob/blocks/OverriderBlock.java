@@ -2,8 +2,9 @@ package fr.jackcartersmith.ob.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.jackcartersmith.ob.OrbitalBombardment;
 import fr.jackcartersmith.ob.proxy.ClientProxy;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
+import fr.jackcartersmith.orbsat.common.OSBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -57,7 +58,7 @@ public class OverriderBlock extends BlockContainer
      */
     public void breakBlock(World par1World, int par2, int par3, int par4, Block block, int par6)
     {
-        if (par1World.getBlock(par2, par3 + 1, par4) == OBBlocks.satelite)
+        if (par1World.getBlock(par2, par3 + 1, par4) == OSBlocks.satelite)
         {
             par1World.removeTileEntity(par2, par3 + 1, par4);
             par1World.setBlockToAir(par2, par3 + 1, par4);
@@ -74,10 +75,10 @@ public class OverriderBlock extends BlockContainer
 
         if (!player.isSneaking())
         {
-            OrbitalBombardment.instance.lastChargerX = x;
-            OrbitalBombardment.instance.lastChargerY = y;
-            OrbitalBombardment.instance.lastChargerZ = z;
-            player.openGui(OrbitalBombardment.instance, 0, world, (int)player.posX, (int)player.posY, (int)player.posZ);
+            OrbitalSatellite.instance.lastChargerX = x;
+            OrbitalSatellite.instance.lastChargerY = y;
+            OrbitalSatellite.instance.lastChargerZ = z;
+            player.openGui(OrbitalSatellite.instance, 0, world, (int)player.posX, (int)player.posY, (int)player.posZ);
         }
 
         return true;

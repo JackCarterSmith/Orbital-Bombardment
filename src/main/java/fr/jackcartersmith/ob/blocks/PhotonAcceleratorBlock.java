@@ -2,8 +2,8 @@ package fr.jackcartersmith.ob.blocks;
 
 import java.util.Random;
 
-import fr.jackcartersmith.ob.OrbitalBombardment;
 import fr.jackcartersmith.ob.proxy.ClientProxy;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -41,10 +41,10 @@ public class PhotonAcceleratorBlock extends BlockContainer
 
         if (!player.isSneaking())
         {
-            OrbitalBombardment.instance.lastGeneralX = x;
-            OrbitalBombardment.instance.lastGeneralY = y;
-            OrbitalBombardment.instance.lastGeneralZ = z;
-            player.openGui(OrbitalBombardment.instance, 4, world, (int)player.posX, (int)player.posY, (int)player.posZ);
+            OrbitalSatellite.instance.lastGeneralX = x;
+            OrbitalSatellite.instance.lastGeneralY = y;
+            OrbitalSatellite.instance.lastGeneralZ = z;
+            player.openGui(OrbitalSatellite.instance, 4, world, (int)player.posX, (int)player.posY, (int)player.posZ);
         }
 
         return true;

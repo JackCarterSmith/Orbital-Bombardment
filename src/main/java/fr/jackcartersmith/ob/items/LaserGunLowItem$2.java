@@ -1,7 +1,7 @@
 package fr.jackcartersmith.ob.items;
 
-import fr.jackcartersmith.ob.blocks.OBBlocks;
-import fr.jackcartersmith.ob.libs.OBConstants;
+import fr.jackcartersmith.orbsat.common.OSBlocks;
+import fr.jackcartersmith.orbsat.common.lib.OSConstants;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -42,8 +42,8 @@ class LaserGunLowItem$2 extends Thread
 
         if (this.val$par3World.isRemote)
         {
-            this.val$par3World.setBlock(this.val$par4, this.val$par5 + 1, this.val$par6, OBBlocks.laserLow);
-            this.val$par3World.setBlock(this.this$0.linkedSatelite.xCoord, this.this$0.linkedSatelite.yCoord + 1, this.this$0.linkedSatelite.zCoord, OBBlocks.laserLow);
+            this.val$par3World.setBlock(this.val$par4, this.val$par5 + 1, this.val$par6, OSBlocks.laserLow);
+            this.val$par3World.setBlock(this.this$0.linkedSatelite.xCoord, this.this$0.linkedSatelite.yCoord + 1, this.this$0.linkedSatelite.zCoord, OSBlocks.laserLow);
         }
 
         try
@@ -60,9 +60,9 @@ class LaserGunLowItem$2 extends Thread
 
         if (this.val$par6 != 0)
         {
-            for (i = 0; i < OBConstants.DesignatorLowMeteorAmount; ++i)
+            for (i = 0; i < OSConstants.DesignatorLowMeteorAmount; ++i)
             {
-                this.this$0.sendChangeToServer2(this.val$par4, this.val$par5 + 100, this.val$par6, OBConstants.DesignatorLowMeteorDamage, (EntityClientPlayerMP)this.val$par2EntityPlayer);
+                this.this$0.sendChangeToServer2(this.val$par4, this.val$par5 + 100, this.val$par6, OSConstants.DesignatorLowMeteorDamage, (EntityClientPlayerMP)this.val$par2EntityPlayer);
             }
         }
     }

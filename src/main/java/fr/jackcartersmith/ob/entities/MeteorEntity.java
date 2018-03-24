@@ -2,8 +2,8 @@ package fr.jackcartersmith.ob.entities;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.jackcartersmith.ob.OBNetwork;
-import fr.jackcartersmith.ob.OrbitalBombardment;
+import fr.jackcartersmith.orbsat.OBNetwork;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.monster.EntitySlime;
@@ -148,6 +148,6 @@ public class MeteorEntity extends EntitySlime
         bos.add(zCoord);
         bos.add(power);
 
-        OrbitalBombardment.obNetwork.sendToServer(new OBNetwork(bos));
+        OrbitalSatellite.obNetwork.sendToServer(new OBNetwork(bos));
     }
 }

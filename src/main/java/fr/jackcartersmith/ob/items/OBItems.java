@@ -1,7 +1,7 @@
 package fr.jackcartersmith.ob.items;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import fr.jackcartersmith.ob.OrbitalBombardment;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import net.minecraft.item.Item;
 
 public class OBItems {

@@ -2,8 +2,8 @@ package fr.jackcartersmith.ob.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.jackcartersmith.ob.OrbitalBombardment;
 import fr.jackcartersmith.ob.proxy.ClientProxy;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -17,7 +17,7 @@ public class SateliteBlock extends BlockContainer
     public SateliteBlock(Material par2Material)
     {
         super(par2Material);
-        OrbitalBombardment var10001 = OrbitalBombardment.instance;
+        OrbitalSatellite var10001 = OrbitalSatellite.instance;
     }
     
     public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)

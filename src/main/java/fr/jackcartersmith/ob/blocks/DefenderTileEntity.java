@@ -1,9 +1,10 @@
 package fr.jackcartersmith.ob.blocks;
 
-import fr.jackcartersmith.ob.OBNetworkClient;
-import fr.jackcartersmith.ob.OrbitalBombardment;
 import fr.jackcartersmith.ob.interfaces.PhotonRecieving;
-import fr.jackcartersmith.ob.libs.OBConstants;
+import fr.jackcartersmith.orbsat.OBNetworkClient;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
+import fr.jackcartersmith.orbsat.common.OSBlocks;
+import fr.jackcartersmith.orbsat.common.lib.OSConstants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,8 +55,8 @@ public class DefenderTileEntity extends PhotonRecieving
                         int x = (int)mob.lastTickPosX;
                         int y = (int)mob.lastTickPosY;
                         int z = (int)mob.lastTickPosZ;
-                        this.worldObj.setBlock(x, y, z, OBBlocks.laserDef);
-                        this.worldObj.setBlock(thisX, thisY + 1, thisZ, OBBlocks.laserDef);
+                        this.worldObj.setBlock(x, y, z, OSBlocks.laserDef);
+                        this.worldObj.setBlock(thisX, thisY + 1, thisZ, OSBlocks.laserDef);
                         this.removeCharge(500);
                     }
                 }
@@ -70,7 +71,7 @@ public class DefenderTileEntity extends PhotonRecieving
 
     public List getNearByEntities()
     {
-        int radius = OBConstants.DefenderRadius;
+        int radius = OSConstants.DefenderRadius;
         List entities = this.worldObj.getEntitiesWithinAABB(EntityMob.class, AxisAlignedBB.getBoundingBox((double)(this.xCoord - radius), (double)(this.yCoord - radius), (double)(this.zCoord - radius), (double)(this.xCoord + radius), (double)(this.yCoord + radius), (double)(this.zCoord + radius)));
         return entities;
     }
@@ -85,7 +86,7 @@ public class DefenderTileEntity extends PhotonRecieving
         bos.add(this.zCoord);
         bos.add(this.getCurrentCharge());
 
-        OrbitalBombardment.obNetwork.sendToAll(new OBNetworkClient(bos));
+        OrbitalSatellite.obNetwork.sendToAll(new OBNetworkClient(bos));
     }
 
     public void sendChangeToClient19()
@@ -98,6 +99,6 @@ public class DefenderTileEntity extends PhotonRecieving
         bos.add(this.zCoord);
         bos.add(0);
 
-        OrbitalBombardment.obNetwork.sendToAll(new OBNetworkClient(bos));
+        OrbitalSatellite.obNetwork.sendToAll(new OBNetworkClient(bos));
     }
 }

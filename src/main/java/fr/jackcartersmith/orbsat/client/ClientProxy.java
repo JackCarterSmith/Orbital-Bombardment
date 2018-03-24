@@ -1,4 +1,4 @@
-package fr.jackcartersmith.ob.proxy;
+package fr.jackcartersmith.orbsat.client;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -22,6 +22,7 @@ import fr.jackcartersmith.ob.models.TileEntityInverterAdvRenderer;
 import fr.jackcartersmith.ob.models.TileEntityOverriderRenderer;
 import fr.jackcartersmith.ob.models.TileEntityPhotonAcceleratorRenderer;
 import fr.jackcartersmith.ob.models.TileEntityPhotonDeceleratorRenderer;
+import fr.jackcartersmith.orbsat.common.CommonProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 

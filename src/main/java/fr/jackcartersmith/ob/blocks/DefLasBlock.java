@@ -20,7 +20,7 @@ public class DefLasBlock extends BlockContainer
     
     public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
     {
-        this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.0F, 10000.0F, 0.0F);
+        this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.0F, 1000.0F, 0.0F);
     }
 
     @SideOnly(Side.CLIENT)
@@ -57,6 +57,7 @@ public class DefLasBlock extends BlockContainer
     /**
      * The type of render function that is called for this block
      */
+    @Override
     public int getRenderType()
     {
         return ClientProxy.tesrRenderId;
@@ -66,6 +67,7 @@ public class DefLasBlock extends BlockContainer
      * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two
      * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
      */
+    @Override
     public boolean isOpaqueCube()
     {
         return false;
@@ -74,6 +76,7 @@ public class DefLasBlock extends BlockContainer
     /**
      * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
      */
+    @Override
     public boolean renderAsNormalBlock()
     {
         return false;

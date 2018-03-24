@@ -1,8 +1,8 @@
-package fr.jackcartersmith.ob.gui;
+package fr.jackcartersmith.orbsat.client.gui;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import fr.jackcartersmith.ob.OrbitalBombardment;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;

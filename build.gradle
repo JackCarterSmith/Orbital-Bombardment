@@ -17,12 +17,17 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "0.1"
+version = "0.1.8"
 group= "fr.jackcartersmith.orbsat" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "orbsat"
 
+apply plugin: 'java'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 minecraft {
     version = "1.7.10-10.13.4.1558-1.7.10"
+		replace '${version}', project.version
     runDir = "eclipse"
 }
 
@@ -39,7 +44,15 @@ dependencies {
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+	
+	compile fileTree(dir: 'externalLibs', include: '*.jar')
 
+}
+
+jar {
+        manifest {
+        attributes 'FMLAT': 'OrbitalSatellite_dc.cfg'
+    }
 }
 
 processResources
@@ -60,4 +73,16 @@ processResources
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+}
+
+task deobfJar(type: Jar) {
+	from sourceSets.main.output
+	classifier = 'deobf'
+	manifest {
+		attributes 'FMLAT': 'OrbitalSatellite_dc.cfg'
+	}
+}
+
+artifacts {
+	archives deobfJar
 }

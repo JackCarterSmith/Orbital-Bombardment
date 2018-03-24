@@ -5,10 +5,10 @@ import java.util.List;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.jackcartersmith.ob.OBNetwork;
-import fr.jackcartersmith.ob.OrbitalBombardment;
 import fr.jackcartersmith.ob.blocks.OverriderBlockTileEntity;
-import fr.jackcartersmith.ob.libs.OBConstants;
+import fr.jackcartersmith.orbsat.OBNetwork;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
+import fr.jackcartersmith.orbsat.common.lib.OSConstants;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,8 +28,8 @@ public class LaserGunMedItem extends Item
 
     public LaserGunMedItem()
     {
-        this.setCreativeTab(OrbitalBombardment.OBCreativeTabs);
-        this.setTextureName(OrbitalBombardment.MODID + ":item_ob_laserGunMed");
+        this.setCreativeTab(OrbitalSatellite.OBCreativeTabs);
+        this.setTextureName(OrbitalSatellite.MODID + ":item_ob_laserGunMed");
         this.setMaxStackSize(1);
     }
 
@@ -85,7 +85,7 @@ public class LaserGunMedItem extends Item
     {
         if (par2World.isRemote)
         {
-            this.pos = par3EntityPlayer.rayTrace((double)OBConstants.DesignatorCommitRange, 1.0F);
+            this.pos = par3EntityPlayer.rayTrace((double)OSConstants.DesignatorCommitRange, 1.0F);
         }
 
         try
@@ -171,21 +171,21 @@ public class LaserGunMedItem extends Item
 
                 if (this.linkedSatelite != null && this.linkedSatelite.getWorldObj().provider.dimensionId == par2EntityPlayer.dimension)
                 {
-                    if (this.linkedSatelite.getCurrentCharge() >= OBConstants.DesignatorMedStrikePUUsage && this.linkedSatelite.shotsLeft > 0)
+                    if (this.linkedSatelite.getCurrentCharge() >= OSConstants.DesignatorMedStrikePUUsage && this.linkedSatelite.shotsLeft > 0)
                     {
                         EntityClientPlayerMP mp;
 
                         if (par3World.isRemote && !par2EntityPlayer.isSneaking() && this.currentMode != "Penetrating Strike")
                         {
                             mp = (EntityClientPlayerMP)par2EntityPlayer;
-                            this.sendChangeToServer15(this.linkedSatelite.xCoord, this.linkedSatelite.yCoord, this.linkedSatelite.zCoord, OBConstants.DesignatorMedStrikePUUsage, mp);
+                            this.sendChangeToServer15(this.linkedSatelite.xCoord, this.linkedSatelite.yCoord, this.linkedSatelite.zCoord, OSConstants.DesignatorMedStrikePUUsage, mp);
                             --this.linkedSatelite.shotsLeft;
                         }
 
                         if (par3World.isRemote && !par2EntityPlayer.isSneaking() && this.currentMode == "Penetrating Strike")
                         {
                             mp = (EntityClientPlayerMP)par2EntityPlayer;
-                            this.sendChangeToServer15(this.linkedSatelite.xCoord, this.linkedSatelite.yCoord, this.linkedSatelite.zCoord, OBConstants.DesignatorMedStrikePUUsage, mp);
+                            this.sendChangeToServer15(this.linkedSatelite.xCoord, this.linkedSatelite.yCoord, this.linkedSatelite.zCoord, OSConstants.DesignatorMedStrikePUUsage, mp);
                             --this.linkedSatelite.shotsLeft;
                         }
 
@@ -226,9 +226,9 @@ public class LaserGunMedItem extends Item
                     }
                     else
                     {
-                        if (par3World.isRemote && this.linkedSatelite.getCurrentCharge() < OBConstants.DesignatorMedStrikePUUsage)
+                        if (par3World.isRemote && this.linkedSatelite.getCurrentCharge() < OSConstants.DesignatorMedStrikePUUsage)
                         {
-                            par2EntityPlayer.addChatMessage(new ChatComponentText("Not enough photon charge on overrider. Needs " + OBConstants.DesignatorMedStrikePUUsage + "PU and only has " + this.linkedSatelite.getCurrentCharge()));
+                            par2EntityPlayer.addChatMessage(new ChatComponentText("Not enough photon charge on overrider. Needs " + OSConstants.DesignatorMedStrikePUUsage + "PU and only has " + this.linkedSatelite.getCurrentCharge()));
                         }
 
                         if (par3World.isRemote && this.linkedSatelite.shotsLeft < 1)
@@ -299,7 +299,7 @@ public class LaserGunMedItem extends Item
         bos.add(zCoord);
         bos.add(power);
 
-        OrbitalBombardment.obNetwork.sendToServer(new OBNetwork(bos));
+        OrbitalSatellite.obNetwork.sendToServer(new OBNetwork(bos));
     }
 
     @SideOnly(Side.CLIENT)
@@ -313,7 +313,7 @@ public class LaserGunMedItem extends Item
         bos.add(zCoord);
         bos.add(power);
 
-        OrbitalBombardment.obNetwork.sendToServer(new OBNetwork(bos));
+        OrbitalSatellite.obNetwork.sendToServer(new OBNetwork(bos));
     }
 
     public void sendChangeToServer3(int xCoord, int yCoord, int zCoord, int power, EntityClientPlayerMP mp)
@@ -326,7 +326,7 @@ public class LaserGunMedItem extends Item
         bos.add(zCoord);
         bos.add(power);
 
-        OrbitalBombardment.obNetwork.sendToServer(new OBNetwork(bos));
+        OrbitalSatellite.obNetwork.sendToServer(new OBNetwork(bos));
     }
 
     public void sendChangeToServer12(int xCoord, int yCoord, int zCoord, int power, EntityClientPlayerMP mp)
@@ -339,7 +339,7 @@ public class LaserGunMedItem extends Item
         bos.add(zCoord);
         bos.add(1);
 
-        OrbitalBombardment.obNetwork.sendToServer(new OBNetwork(bos));
+        OrbitalSatellite.obNetwork.sendToServer(new OBNetwork(bos));
     }
 
     public void sendChangeToServer15(int xCoord, int yCoord, int zCoord, int power, EntityClientPlayerMP mp)
@@ -352,7 +352,7 @@ public class LaserGunMedItem extends Item
         bos.add(zCoord);
         bos.add(power);
 
-        OrbitalBombardment.obNetwork.sendToServer(new OBNetwork(bos));
+        OrbitalSatellite.obNetwork.sendToServer(new OBNetwork(bos));
     }
 
     public void sendChangeToServer24()
@@ -365,6 +365,6 @@ public class LaserGunMedItem extends Item
         bos.add(1);
         bos.add(1);
 
-        OrbitalBombardment.obNetwork.sendToServer(new OBNetwork(bos));
+        OrbitalSatellite.obNetwork.sendToServer(new OBNetwork(bos));
     }
 }

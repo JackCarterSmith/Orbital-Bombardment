@@ -1,14 +1,14 @@
 package fr.jackcartersmith.ob.blocks;
 
 import fr.jackcartersmith.ob.interfaces.PhotonProducing;
-import fr.jackcartersmith.ob.libs.OBConstants;
+import fr.jackcartersmith.orbsat.common.lib.OSConstants;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class InverterAdvTileEntity extends PhotonProducing
 {   
     public InverterAdvTileEntity()
     {
-        this.setChargeRate(OBConstants.AdvPhotonInvChargeRate);
+        this.setChargeRate(OSConstants.AdvPhotonInvChargeRate);
     }
 
     /**

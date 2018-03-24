@@ -1,4 +1,4 @@
-package fr.jackcartersmith.ob;
+package fr.jackcartersmith.orbsat;
 
 import java.util.Random;
 

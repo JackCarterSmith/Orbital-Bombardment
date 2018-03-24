@@ -2,8 +2,8 @@ package fr.jackcartersmith.ob.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.jackcartersmith.ob.OrbitalBombardment;
 import fr.jackcartersmith.ob.proxy.ClientProxy;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -41,10 +41,10 @@ public class ExtenderBlock extends BlockContainer
      */
     public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
     {
-        OrbitalBombardment.instance.lastExtenderX = par2;
-        OrbitalBombardment.instance.lastExtenderY = par3;
-        OrbitalBombardment.instance.lastExtenderZ = par4;
-        par5EntityPlayer.openGui(OrbitalBombardment.instance, 3, par1World, par2, par3, par4);
+        OrbitalSatellite.instance.lastExtenderX = par2;
+        OrbitalSatellite.instance.lastExtenderY = par3;
+        OrbitalSatellite.instance.lastExtenderZ = par4;
+        par5EntityPlayer.openGui(OrbitalSatellite.instance, 3, par1World, par2, par3, par4);
         return true;
     }
 

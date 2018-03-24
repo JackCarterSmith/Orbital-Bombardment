@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import fr.jackcartersmith.ob.OBNetworkClient;
-import fr.jackcartersmith.ob.OrbitalBombardment;
 import fr.jackcartersmith.ob.blocks.InverterAdvTileEntity;
+import fr.jackcartersmith.orbsat.OBNetworkClient;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import net.minecraft.tileentity.TileEntity;
 
 public class PhotonProducing extends TileEntity
@@ -215,7 +215,7 @@ public class PhotonProducing extends TileEntity
         bos.add(this.zCoord);
         bos.add(this.getScaledOutput());
         
-        OrbitalBombardment.obNetwork.sendToAll(new OBNetworkClient(bos));
+        OrbitalSatellite.obNetwork.sendToAll(new OBNetworkClient(bos));
     }
 
     public void sendChangeToClient15()
@@ -228,6 +228,6 @@ public class PhotonProducing extends TileEntity
         bos.add(this.zCoord);
         bos.add(this.getPowerIncoming());
         
-        OrbitalBombardment.obNetwork.sendToAll(new OBNetworkClient(bos));
+        OrbitalSatellite.obNetwork.sendToAll(new OBNetworkClient(bos));
     }
 }

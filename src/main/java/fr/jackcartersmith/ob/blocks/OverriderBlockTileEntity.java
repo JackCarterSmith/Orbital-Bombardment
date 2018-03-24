@@ -1,10 +1,10 @@
 package fr.jackcartersmith.ob.blocks;
 
-import fr.jackcartersmith.ob.OBNetwork;
-import fr.jackcartersmith.ob.OBNetworkClient;
-import fr.jackcartersmith.ob.OrbitalBombardment;
 import fr.jackcartersmith.ob.interfaces.PhotonConsuming;
-import fr.jackcartersmith.ob.libs.OBConstants;
+import fr.jackcartersmith.orbsat.OBNetwork;
+import fr.jackcartersmith.orbsat.OBNetworkClient;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
+import fr.jackcartersmith.orbsat.common.lib.OSConstants;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -52,7 +52,7 @@ public class OverriderBlockTileEntity extends PhotonConsuming
      */
     public void updateEntity()
     {
-        this.maxCharge = OBConstants.OverriderMaxCharge;
+        this.maxCharge = OSConstants.OverriderMaxCharge;
 
         if (this.currentCharge > this.maxCharge)
         {
@@ -121,7 +121,7 @@ public class OverriderBlockTileEntity extends PhotonConsuming
         bos.add(this.zCoord);
         bos.add(this.getCurrentCharge());
 
-        OrbitalBombardment.obNetwork.sendToAll(new OBNetworkClient(bos));
+        OrbitalSatellite.obNetwork.sendToAll(new OBNetworkClient(bos));
     }
 
     public void sendChangeToClient5()
@@ -134,7 +134,7 @@ public class OverriderBlockTileEntity extends PhotonConsuming
         bos.add(this.zCoord);
         bos.add(this.shotsLeft);
 
-        OrbitalBombardment.obNetwork.sendToAll(new OBNetworkClient(bos));
+        OrbitalSatellite.obNetwork.sendToAll(new OBNetworkClient(bos));
     }
 
     public void sendChangeToServer21(int xCoord, int yCoord, int zCoord, int power, EntityClientPlayerMP mp)
@@ -147,6 +147,6 @@ public class OverriderBlockTileEntity extends PhotonConsuming
         bos.add(zCoord);
         bos.add(power);
 
-        OrbitalBombardment.obNetwork.sendToServer(new OBNetwork(bos));
+        OrbitalSatellite.obNetwork.sendToServer(new OBNetwork(bos));
     }
 }

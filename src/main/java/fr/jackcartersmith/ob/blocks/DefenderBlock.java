@@ -2,8 +2,8 @@ package fr.jackcartersmith.ob.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import fr.jackcartersmith.ob.OrbitalBombardment;
 import fr.jackcartersmith.ob.proxy.ClientProxy;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -60,6 +60,7 @@ public class DefenderBlock extends BlockContainer
     /**
      * The type of render function that is called for this block
      */
+	@Override
     public int getRenderType()
     {
         return ClientProxy.tesrRenderId;
@@ -69,6 +70,7 @@ public class DefenderBlock extends BlockContainer
      * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two
      * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
      */
+	@Override
     public boolean isOpaqueCube()
     {
         return false;
@@ -77,6 +79,7 @@ public class DefenderBlock extends BlockContainer
     /**
      * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
      */
+	@Override
     public boolean renderAsNormalBlock()
     {
         return false;

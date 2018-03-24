@@ -5,9 +5,9 @@ import java.util.Iterator;
 import java.util.List;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import fr.jackcartersmith.ob.OBNetworkClient;
-import fr.jackcartersmith.ob.OrbitalBombardment;
-import fr.jackcartersmith.ob.libs.OBConstants;
+import fr.jackcartersmith.orbsat.OBNetworkClient;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
+import fr.jackcartersmith.orbsat.common.lib.OSConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.play.client.C17PacketCustomPayload;
 
@@ -21,7 +21,7 @@ public class PhotonSending extends PhotonConsuming
 
     public List<PhotonRecieving> getNearbyPhotonRecievingEntities()
     {
-        int radius = OBConstants.PhotonSendingRadius;
+        int radius = OSConstants.PhotonSendingRadius;
         ArrayList entities = new ArrayList();
         int xC = this.xCoord;
         int yC = this.yCoord;
@@ -153,7 +153,7 @@ public class PhotonSending extends PhotonConsuming
         bos.add(this.zCoord);
         bos.add(this.getOutputRate());
 
-        OrbitalBombardment.obNetwork.sendToAll(new OBNetworkClient(bos));
+        OrbitalSatellite.obNetwork.sendToAll(new OBNetworkClient(bos));
     }
 
     public void sendChangeToClient9()
@@ -166,7 +166,7 @@ public class PhotonSending extends PhotonConsuming
         bos.add(this.zCoord);
         bos.add(this.getScaledOutput());
 
-        OrbitalBombardment.obNetwork.sendToAll(new OBNetworkClient(bos));
+        OrbitalSatellite.obNetwork.sendToAll(new OBNetworkClient(bos));
     }
 
     public void sendChangeToClient11()
@@ -202,6 +202,6 @@ public class PhotonSending extends PhotonConsuming
         bos.add(this.zCoord);
         bos.add(this.getListSize());
         
-        OrbitalBombardment.obNetwork.sendToAll(new OBNetworkClient(bos));
+        OrbitalSatellite.obNetwork.sendToAll(new OBNetworkClient(bos));
     }
 }

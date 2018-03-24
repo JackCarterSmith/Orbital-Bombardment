@@ -11,7 +11,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class LaserLowRenderer extends TileEntitySpecialRenderer
 {
-    public static ModelLaser model = new ModelLaser();
+    //public ModelLaser model = new ModelLaser();
+	public static ModelLaser model = new ModelLaser();
     public static ResourceLocation location = new ResourceLocation("ob", "textures/blocks/laserLow.png");
     float comeIn = 0.0F;
     float counter = 0.0F;
@@ -32,7 +33,7 @@ public class LaserLowRenderer extends TileEntitySpecialRenderer
         float rotation = tile.rotate;
         this.comeIn = tile.insideCounter;
         float counter = tile.color;
-        float grow = tile.grow;
+        //float grow = tile.grow;
         int r = (int)(50.0F - counter);
         int g = (int)(50.0F - counter);
         int b = (int)(50.0F - counter);

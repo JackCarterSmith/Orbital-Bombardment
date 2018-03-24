@@ -1,9 +1,9 @@
-package fr.jackcartersmith.ob.gui;
+package fr.jackcartersmith.orbsat.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import fr.jackcartersmith.ob.OrbitalBombardment;
 import fr.jackcartersmith.ob.blocks.OverriderBlockTileEntity;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import fr.jackcartersmith.ob.blocks.ExtenderTileEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
@@ -36,9 +36,9 @@ public class ExtenderGui extends GuiScreen
         int posY = (this.height - 120) / 2;
         this.drawTexturedModalRect(posX, posY, 0, 0, 200, 120);
         super.drawScreen(x, y, f1);
-        int xC = OrbitalBombardment.instance.lastExtenderX;
-        int yC = OrbitalBombardment.instance.lastExtenderY;
-        int zC = OrbitalBombardment.instance.lastExtenderZ;
+        int xC = OrbitalSatellite.instance.lastExtenderX;
+        int yC = OrbitalSatellite.instance.lastExtenderY;
+        int zC = OrbitalSatellite.instance.lastExtenderZ;
         World world = this.entity2.worldObj;
         ExtenderTileEntity entity = (ExtenderTileEntity)world.getTileEntity(xC, yC, zC);
         String chargingString = "";
@@ -61,9 +61,9 @@ public class ExtenderGui extends GuiScreen
         switch (button.id)
         {
             case 0:
-                int xC = OrbitalBombardment.instance.lastChargerX;
-                int yC = OrbitalBombardment.instance.lastChargerY;
-                int zC = OrbitalBombardment.instance.lastChargerZ;
+                int xC = OrbitalSatellite.instance.lastChargerX;
+                int yC = OrbitalSatellite.instance.lastChargerY;
+                int zC = OrbitalSatellite.instance.lastChargerZ;
                 World world = this.entity2.worldObj;
                 OverriderBlockTileEntity entity = (OverriderBlockTileEntity)world.getTileEntity(xC, yC, zC);
                 entity.setCurrentCharge(entity.getCurrentCharge() - 30000);

@@ -1,7 +1,7 @@
 package fr.jackcartersmith.ob.items;
 
-import fr.jackcartersmith.ob.blocks.OBBlocks;
-import fr.jackcartersmith.ob.libs.OBConstants;
+import fr.jackcartersmith.orbsat.common.OSBlocks;
+import fr.jackcartersmith.orbsat.common.lib.OSConstants;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
@@ -42,8 +42,8 @@ class LaserGunLowItem$4 implements Runnable
 
         if (this.val$par3World.isRemote)
         {
-            this.val$par3World.setBlock(this.val$par4, this.val$par5 + 1, this.val$par6, OBBlocks.laserLow);
-            this.val$par3World.setBlock(this.this$0.linkedSatelite.xCoord, this.this$0.linkedSatelite.yCoord + 1, this.this$0.linkedSatelite.zCoord, OBBlocks.laserLow);
+            this.val$par3World.setBlock(this.val$par4, this.val$par5 + 1, this.val$par6, OSBlocks.laserLow);
+            this.val$par3World.setBlock(this.this$0.linkedSatelite.xCoord, this.this$0.linkedSatelite.yCoord + 1, this.this$0.linkedSatelite.zCoord, OSBlocks.laserLow);
         }
 
         try
@@ -68,7 +68,7 @@ class LaserGunLowItem$4 implements Runnable
 
         EntityClientPlayerMP var4 = (EntityClientPlayerMP)this.val$par2EntityPlayer;
 
-        for (int i = 0; i < OBConstants.DesignatorLowLightning; ++i)
+        for (int i = 0; i < OSConstants.DesignatorLowLightning; ++i)
         {
             this.this$0.sendChangeToServer3(this.val$par4, this.val$par5, this.val$par6, 1, var4);
             this.val$par3World.spawnEntityInWorld(new EntityLightningBolt(this.val$par3World, (double)this.val$par4, (double)this.val$par5, (double)this.val$par6));

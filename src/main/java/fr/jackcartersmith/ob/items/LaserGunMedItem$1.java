@@ -1,6 +1,6 @@
 package fr.jackcartersmith.ob.items;
 
-import fr.jackcartersmith.ob.blocks.OBBlocks;
+import fr.jackcartersmith.orbsat.common.OSBlocks;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -39,8 +39,8 @@ class LaserGunMedItem$1 extends Thread
 
         if (this.val$par3World.isRemote)
         {
-            this.val$par3World.setBlock(this.val$par4, this.val$par5 + 1, this.val$par6, OBBlocks.laserLow);
-            this.val$par3World.setBlock(this.this$0.linkedSatelite.xCoord, this.this$0.linkedSatelite.yCoord + 1, this.this$0.linkedSatelite.zCoord, OBBlocks.laserLow);
+            this.val$par3World.setBlock(this.val$par4, this.val$par5 + 1, this.val$par6, OSBlocks.laserLow);
+            this.val$par3World.setBlock(this.this$0.linkedSatelite.xCoord, this.this$0.linkedSatelite.yCoord + 1, this.this$0.linkedSatelite.zCoord, OSBlocks.laserLow);
         }
 
         try

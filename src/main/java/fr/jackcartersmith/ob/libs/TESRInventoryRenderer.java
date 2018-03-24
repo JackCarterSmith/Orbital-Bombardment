@@ -3,7 +3,6 @@ package fr.jackcartersmith.ob.libs;
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import fr.jackcartersmith.ob.blocks.OBBlocks;
 import fr.jackcartersmith.ob.models.SateliteRenderer;
 import fr.jackcartersmith.ob.models.TileEntityDefenderRenderer;
 import fr.jackcartersmith.ob.models.TileEntityExtenderRenderer;
@@ -12,6 +11,7 @@ import fr.jackcartersmith.ob.models.TileEntityOverriderRenderer;
 import fr.jackcartersmith.ob.models.TileEntityPhotonAcceleratorRenderer;
 import fr.jackcartersmith.ob.models.TileEntityPhotonDeceleratorRenderer;
 import fr.jackcartersmith.ob.proxy.ClientProxy;
+import fr.jackcartersmith.orbsat.common.OSBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -29,7 +29,7 @@ public class TESRInventoryRenderer implements ISimpleBlockRenderingHandler
     @Override
     public void renderInventoryBlock(Block arg0, int arg1, int arg2, RenderBlocks arg3)
     {
-        if(arg0 == OBBlocks.defender && arg1 == 0)
+        if(arg0 == OSBlocks.defender && arg1 == 0)
         {
             GL11.glPushMatrix();
             GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
@@ -38,7 +38,7 @@ public class TESRInventoryRenderer implements ISimpleBlockRenderingHandler
             TileEntityDefenderRenderer.model.renderAll();
             GL11.glPopMatrix();
         }
-        else if(arg0 == OBBlocks.photonAccelerator && arg1 == 0)
+        else if(arg0 == OSBlocks.photonAccelerator && arg1 == 0)
         {
             GL11.glPushMatrix();
             GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
@@ -47,7 +47,7 @@ public class TESRInventoryRenderer implements ISimpleBlockRenderingHandler
             TileEntityPhotonAcceleratorRenderer.model.renderAll();
             GL11.glPopMatrix();
         }
-        else if(arg0 == OBBlocks.photonDecelerator && arg1 == 0)
+        else if(arg0 == OSBlocks.photonDecelerator && arg1 == 0)
         {
             GL11.glPushMatrix();
             GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
@@ -56,7 +56,7 @@ public class TESRInventoryRenderer implements ISimpleBlockRenderingHandler
             TileEntityPhotonDeceleratorRenderer.model.renderAll();
             GL11.glPopMatrix();
         }
-        else if(arg0 == OBBlocks.photonInverterAdv && arg1 == 0)
+        else if(arg0 == OSBlocks.photonInverterAdv && arg1 == 0)
         {
             GL11.glPushMatrix();
             GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
@@ -65,7 +65,7 @@ public class TESRInventoryRenderer implements ISimpleBlockRenderingHandler
             TileEntityInverterAdvRenderer.model.renderAll();
             GL11.glPopMatrix();
         }
-        else if(arg0 == OBBlocks.extender && arg1 == 0)
+        else if(arg0 == OSBlocks.extender && arg1 == 0)
         {
             GL11.glPushMatrix();
             GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
@@ -74,7 +74,7 @@ public class TESRInventoryRenderer implements ISimpleBlockRenderingHandler
             TileEntityExtenderRenderer.model.renderAll();
             GL11.glPopMatrix();
         }
-        else if(arg0 == OBBlocks.overrider && arg1 == 0)
+        else if(arg0 == OSBlocks.overrider && arg1 == 0)
         {
             GL11.glPushMatrix();
             GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
@@ -83,7 +83,7 @@ public class TESRInventoryRenderer implements ISimpleBlockRenderingHandler
             TileEntityOverriderRenderer.model.renderAll();
             GL11.glPopMatrix();
         }
-        else if(arg0 == OBBlocks.satelite && arg1 == 0)
+        else if(arg0 == OSBlocks.satelite && arg1 == 0)
         {
             GL11.glPushMatrix();
             GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);

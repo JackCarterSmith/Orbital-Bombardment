@@ -1,14 +1,14 @@
-package fr.jackcartersmith.ob.gui;
+package fr.jackcartersmith.orbsat.client.gui;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.lwjgl.opengl.GL11;
 
-import fr.jackcartersmith.ob.OBNetwork;
-import fr.jackcartersmith.ob.OrbitalBombardment;
 import fr.jackcartersmith.ob.blocks.OverriderBlockTileEntity;
 import fr.jackcartersmith.ob.blocks.SateliteTileEntity;
+import fr.jackcartersmith.orbsat.OBNetwork;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.gui.GuiButton;
@@ -43,9 +43,9 @@ public class OverriderBlockGui extends GuiScreen
         this.drawTexturedModalRect(posX, posY, 0, 0, 200, 120);
         super.drawScreen(x, y, f1);
         World world = this.entity2.worldObj;
-        int xC = OrbitalBombardment.instance.lastChargerX;
-        int yC = OrbitalBombardment.instance.lastChargerY;
-        int zC = OrbitalBombardment.instance.lastChargerZ;
+        int xC = OrbitalSatellite.instance.lastChargerX;
+        int yC = OrbitalSatellite.instance.lastChargerY;
+        int zC = OrbitalSatellite.instance.lastChargerZ;
         OverriderBlockTileEntity entity = (OverriderBlockTileEntity)world.getTileEntity(xC, yC, zC);
 
         if (entity.hasSatelite)
@@ -100,9 +100,9 @@ public class OverriderBlockGui extends GuiScreen
         {
             case 0:
                 World world = this.entity2.worldObj;
-                int xC = OrbitalBombardment.instance.lastChargerX;
-                int yC = OrbitalBombardment.instance.lastChargerY + 1;
-                int zC = OrbitalBombardment.instance.lastChargerZ;
+                int xC = OrbitalSatellite.instance.lastChargerX;
+                int yC = OrbitalSatellite.instance.lastChargerY + 1;
+                int zC = OrbitalSatellite.instance.lastChargerZ;
                 OverriderBlockTileEntity entity = (OverriderBlockTileEntity)world.getTileEntity(xC, yC - 1, zC);
                 SateliteTileEntity sat = (SateliteTileEntity)world.getTileEntity(xC, yC, zC);
 
@@ -134,6 +134,6 @@ public class OverriderBlockGui extends GuiScreen
         bos.add(zCoord);
         bos.add(power);
         
-        OrbitalBombardment.obNetwork.sendToServer(new OBNetwork(bos));
+        OrbitalSatellite.obNetwork.sendToServer(new OBNetwork(bos));
     }
 }

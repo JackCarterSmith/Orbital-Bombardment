@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import fr.jackcartersmith.ob.interfaces.PhotonRecieving;
-import fr.jackcartersmith.ob.libs.OBConstants;
+import fr.jackcartersmith.orbsat.common.lib.OSConstants;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.util.AxisAlignedBB;
@@ -54,7 +54,7 @@ public class DefenderLaserTileEntity extends PhotonRecieving
 
     public List getNearByEntitiesForDamage(int x, int y, int z)
     {
-        int radius = OBConstants.DefenderRadius;
+        int radius = OSConstants.DefenderRadius;
         List entities = this.worldObj.getEntitiesWithinAABB(EntityMob.class, AxisAlignedBB.getBoundingBox((double)(x - 5), (double)(y - 5), (double)(z - 5), (double)(x + 5), (double)(y + 5), (double)(z + 5)));
         return entities;
     }

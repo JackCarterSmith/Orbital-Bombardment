@@ -1,10 +1,10 @@
-package fr.jackcartersmith.ob.gui;
+package fr.jackcartersmith.orbsat.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import fr.jackcartersmith.ob.OrbitalBombardment;
 import fr.jackcartersmith.ob.blocks.OverriderBlockTileEntity;
-import fr.jackcartersmith.ob.libs.OBConstants;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
+import fr.jackcartersmith.orbsat.common.lib.OSConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -36,7 +36,7 @@ public class PhotonInverterAdvGui extends GuiScreen
         int posY = (this.height - 120) / 2;
         this.drawTexturedModalRect(posX, posY, 0, 0, 200, 120);
         super.drawScreen(x, y, f1);
-        this.fontRendererObj.drawStringWithShadow("Production Rate: " + OBConstants.AdvPhotonInvChargeRate + "PU/t", posX + 30, posY + 40, -1);
+        this.fontRendererObj.drawStringWithShadow("Production Rate: " + OSConstants.AdvPhotonInvChargeRate + "PU/t", posX + 30, posY + 40, -1);
     }
 
     /**
@@ -55,9 +55,9 @@ public class PhotonInverterAdvGui extends GuiScreen
         switch (button.id)
         {
             case 0:
-                int xC = OrbitalBombardment.instance.lastChargerX;
-                int yC = OrbitalBombardment.instance.lastChargerY;
-                int zC = OrbitalBombardment.instance.lastChargerZ;
+                int xC = OrbitalSatellite.instance.lastChargerX;
+                int yC = OrbitalSatellite.instance.lastChargerY;
+                int zC = OrbitalSatellite.instance.lastChargerZ;
                 World world = this.entity2.worldObj;
                 OverriderBlockTileEntity entity = (OverriderBlockTileEntity)world.getTileEntity(xC, yC, zC);
                 entity.setCurrentCharge(0);
