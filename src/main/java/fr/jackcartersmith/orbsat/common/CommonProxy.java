@@ -5,8 +5,6 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.network.simpleimpl.MessageContext;
-import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import fr.jackcartersmith.orbsat.OrbitalSatellite;
@@ -14,13 +12,10 @@ import fr.jackcartersmith.orbsat.client.gui.OSGuiHandler;
 import fr.jackcartersmith.orbsat.common.handler.FMLEventHandler;
 import fr.jackcartersmith.orbsat.common.lib.OSConstants;
 import fr.jackcartersmith.orbsat.common.lib.OSRefs;
+import fr.jackcartersmith.orbsat.common.network.TileObjectPacket;
 import fr.jackcartersmith.orbsat.common.tileentities.TileDefender;
 import fr.jackcartersmith.orbsat.common.utils.OSLogHelper;
 import net.minecraft.client.audio.ISound;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
@@ -52,6 +47,8 @@ public class CommonProxy {
     
     public void initializeNetwork() {
         OrbitalSatellite.network = NetworkRegistry.INSTANCE.newSimpleChannel(OrbitalSatellite.networkChannelName);
+        OrbitalSatellite.network.registerMessage(TileObjectPacket.Handler.class, TileObjectPacket.class, 0, Side.SERVER);
+        OrbitalSatellite.network.registerMessage(TileObjectPacket.Handler.class, TileObjectPacket.class, 1, Side.CLIENT);
         //OrbitalSatellite.network.registerMessage(OBNetwork.Handler.class, OBNetwork.class, 1, Side.SERVER);
         //OrbitalSatellite.network.registerMessage(OBNetworkClient.Handler.class, OBNetworkClient.class, 2, Side.CLIENT);
         

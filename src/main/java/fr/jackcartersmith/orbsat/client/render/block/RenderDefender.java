@@ -39,6 +39,7 @@ public class RenderDefender implements IItemRenderer{
 
         ResourceHandler.bindResource("textures/models/defender.png");
         RenderTileDefender.modelDefender.render(null, 1F, 0F, 0F, 0F, 0F, scale);
+        RenderTileDefender.modelDefender.renderCrystal(null, 1F, 1F, 0F, 0F, 0F, scale);
         GL11.glPopMatrix();
     }
 }

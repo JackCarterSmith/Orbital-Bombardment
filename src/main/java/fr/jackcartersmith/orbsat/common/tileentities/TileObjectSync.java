@@ -5,7 +5,7 @@ import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import fr.jackcartersmith.orbsat.common.network.TileObjectPacket;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileObjectSync extends TileEntity{
+public abstract class TileObjectSync extends TileEntity{
 	/**
      * Sends a primitive to the client in the form of an object
      */

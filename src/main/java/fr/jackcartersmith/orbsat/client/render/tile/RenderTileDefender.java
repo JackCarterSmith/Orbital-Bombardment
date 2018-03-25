@@ -45,7 +45,19 @@ public class RenderTileDefender extends TileEntitySpecialRenderer {
         */
 
         ResourceHandler.bindResource("textures/models/defender.png");
-        modelDefender.render(null, tile.modelIllumination, 0F, 0F, 0F, 0F, scale);
+        modelDefender.render(null, 0F, 0F, 0F, 0F, 0F, scale);
+        GL11.glEnable(GL11.GL_BLEND);
+        //float rotation = tile.rotation + (partialTick * tile.rotationSpeed);
+        //GL11.glRotatef(tile.rotation + (partialTick * tile.rotationSpeed), 0F, 0F, 1F);
+        //GL11.glRotatef(-tile.rotation + (partialTick * tile.rotationSpeed), 0F, 0F, 1F);
+        //modelDefender.Shape7.rotateAngleY = tile.rotation * 90.0F;
+        //modelDefender.Shape7.rotateAngleZ = tile.rotation * 90.0F;
+        
+        modelDefender.Shape7.rotateAngleY = (float) (-Math.sin(tile.rotation));
+        modelDefender.Shape7.rotateAngleZ = (float) (Math.sin(-2*Math.PI/3+tile.rotation));
+        modelDefender.Shape7.rotateAngleX = (float) (Math.sin(2*Math.PI/3+tile.rotation));
+        modelDefender.renderCrystal(null, 0F, tile.modelIllumination, 0F, 0F, 0F, scale);
+        GL11.glDisable(GL11.GL_BLEND);
 
         GL11.glPopMatrix();
     }

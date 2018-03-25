@@ -59,10 +59,10 @@ public class ModelDefender extends ModelBase {
         this.setRotateAngle(this.Shape6, 0.0F, 0.0F, 0.0F);
         this.Shape7 = new ModelRenderer(this, 85, 0);
         this.Shape7.addBox(-3.0F, -3.0F, -3.0F, 6, 6, 6);
-        this.Shape7.setRotationPoint(0.0F, -3.0F, 0.0F);
+        this.Shape7.setRotationPoint(0.0F, -3.5F, 0.0F);
         this.Shape7.setTextureSize(128, 128);
         this.Shape7.mirror = true;
-        this.setRotateAngle(this.Shape7, ((float)Math.PI / 4F), 0.0F, ((float)Math.PI / 4F));
+        this.setRotateAngle(this.Shape7, ((float)Math.sin(0)), (float)Math.sin(Math.PI/2), (float)Math.sin(3*Math.PI/2));
         this.Shape8 = new ModelRenderer(this, 10, 26);
         this.Shape8.addBox(-3.0F, 0.0F, -3.0F, 6, 2, 6);
         this.Shape8.setRotationPoint(0.0F, 20.0F, 0.0F);
@@ -72,7 +72,7 @@ public class ModelDefender extends ModelBase {
     }
 
     @Override
-    public void render(Entity entity, float embitterRotation, float brightness, float x, float y, float z, float scale) {
+    public void render(Entity entity, float rotation, float brightness, float x, float y, float z, float scale) {
         this.Shape1.render(scale);
         this.Shape2.render(scale);
         this.Shape3.render(scale);
@@ -80,17 +80,21 @@ public class ModelDefender extends ModelBase {
         this.Shape5.render(scale);
         this.Shape6.render(scale);
         this.Shape8.render(scale);
-
+    }
+    
+    public void renderCrystal(Entity entity, float rotation, float brightness, float x, float y, float z, float scale) {
         float lastBrightnessX = OpenGlHelper.lastBrightnessX;
         float lastBrightnessY = OpenGlHelper.lastBrightnessY;
 
         float b = brightness * 200F;
         float colour = Math.min(2F, (brightness * 2F) + 0.5F);
         if (brightness > 0F) GL11.glDisable(GL11.GL_LIGHTING);
+        GL11.glEnable(GL11.GL_BLEND);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, Math.min(200F, lastBrightnessX + b), Math.min(200F, lastBrightnessY + b));
-        GL11.glColor4f(colour, colour, colour, 1F);
+        GL11.glColor4f(colour*10F, colour*0F, colour*20F, 0.9F);
         this.Shape7.render(scale);
-        GL11.glColor4f(1F, 1F, 1F, 1F);
+        GL11.glDisable(GL11.GL_BLEND);
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lastBrightnessX, lastBrightnessY);
         if (brightness > 0F) GL11.glEnable(GL11.GL_LIGHTING);
     }
