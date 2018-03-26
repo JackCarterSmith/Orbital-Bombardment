@@ -19,7 +19,7 @@ apply plugin: 'forge'
 
 version = "0.1.8"
 group= "fr.jackcartersmith.orbsat" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "orbsat"
+archivesBaseName = "OrbitalSatellite"
 
 apply plugin: 'java'
 sourceCompatibility = 1.8
@@ -47,12 +47,6 @@ dependencies {
 	
 	compile fileTree(dir: 'externalLibs', include: '*.jar')
 
-}
-
-jar {
-        manifest {
-        attributes 'FMLAT': 'OrbitalSatellite_dc.cfg'
-    }
 }
 
 processResources

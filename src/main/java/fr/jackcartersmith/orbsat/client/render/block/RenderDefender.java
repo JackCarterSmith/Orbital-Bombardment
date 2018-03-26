@@ -21,7 +21,6 @@ public class RenderDefender implements IItemRenderer{
     @Override
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         GL11.glPushMatrix();
-        float scale = (1F / 16F);
 
         if (type == ItemRenderType.INVENTORY) {
         	GL11.glScaled(0.76, 0.76, 0.76);
@@ -38,8 +37,8 @@ public class RenderDefender implements IItemRenderer{
         GL11.glRotated(180, 0, 0, 1);
 
         ResourceHandler.bindResource("textures/models/defender.png");
-        RenderTileDefender.modelDefender.render(null, 1F, 0F, 0F, 0F, 0F, scale);
-        RenderTileDefender.modelDefender.renderCrystal(null, 1F, 1F, 0F, 0F, 0F, scale);
+        RenderTileDefender.modelDefender.render();
+        RenderTileDefender.modelDefender.renderCrystal(1F);
         GL11.glPopMatrix();
     }
 }

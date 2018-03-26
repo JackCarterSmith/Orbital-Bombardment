@@ -1,5 +1,9 @@
 package fr.jackcartersmith.orbsat.common.tileentities;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fr.jackcartersmith.orbsat.OrbitalSatellite;
+import fr.jackcartersmith.orbsat.client.render.particle.ParticleLaserBeam;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -14,24 +18,68 @@ public class TileDefender extends TileEntity {
     public int facingDirection = ForgeDirection.UP.ordinal();
     public boolean running = false;
     public boolean runningCach = false;
-    private int tick = 0;
-    public float rotation = 0;
-    public float rotationSpeed = 0;
-    private float targetSpeed = 0;
+    public int pow = 75;
+    public float rotationSpeed = 4.0F;
+    public float crystalBrightness = 1.0F;
 
-    //@SideOnly(Side.CLIENT)
-    //private ParticleReactorBeam beam;
+    
+    @SideOnly(Side.CLIENT)
+    private ParticleLaserBeam beam;
     
     @Override
-    public void updateEntity() {
-        //rotation += 1.0E-2F * (float)this.getCurrentCharge();
-    	rotation += 1.0E-1F;
-    	
-        if ((double)rotation >= Math.PI)
+    public void updateEntity() { 	
+    	/*
+        if (this.rotation != 1.0F)
         {
-            rotation = (float)(-Math.PI);
+            if (this.rotation < 1.0F)
+            {
+            	this.rotation += Math.max(this.rotation / 10.0F, 0.001F);
+            }
+
+            if ((double)this.rotation > 0.999D)
+            {
+            	this.rotation = 1.0F;
+            }
         }
+        */
+        
+        if (worldObj.isRemote)
+        	beam = OrbitalSatellite.proxy.energyBeam(worldObj, this.xCoord + 0.52F, this.yCoord, this.zCoord + 0.48F, this.xCoord, this.yCoord + 1024, this.zCoord, pow, 8, beam, true, 0);
     	
+        
+        
+        
+        
+        
+        /*
+        if (this.active && this.startUp != 1.0F)
+        {
+            if (this.startUp < 1.0F)
+            {
+                this.startUp += Math.max(this.startUp / 10.0F, 0.001F);
+            }
+
+            if ((double)this.startUp > 0.999D)
+            {
+                this.startUp = 1.0F;
+            }
+        }
+
+        if (!this.active && this.startUp > 0.0F)
+        {
+            if (this.startUp > 0.0F)
+            {
+                this.startUp -= this.startUp / 10.0F;
+            }
+
+            if ((double)this.startUp < 0.001D)
+            {
+                this.startUp = 0.0F;
+            }
+        }
+         */
+        
+        
     	/*
         targetSpeed = 1F;
 

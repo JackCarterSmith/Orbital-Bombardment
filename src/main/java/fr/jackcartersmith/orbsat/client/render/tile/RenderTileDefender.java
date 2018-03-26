@@ -4,26 +4,46 @@ import org.lwjgl.opengl.GL11;
 import fr.jackcartersmith.orbsat.client.handler.ResourceHandler;
 import fr.jackcartersmith.orbsat.client.model.ModelDefender;
 import fr.jackcartersmith.orbsat.common.tileentities.TileDefender;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 
 public class RenderTileDefender extends TileEntitySpecialRenderer {
     public static ModelDefender modelDefender = new ModelDefender();
+    
 
     @Override
     public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float partialTick) {
         GL11.glPushMatrix();
         GL11.glTranslated(x + 0.5, y + 1.5, z + 0.5);
 
-        renderCore((TileDefender) tileEntity, partialTick);
+        renderCore((TileDefender) tileEntity, x, y, z, partialTick);
 
         GL11.glPopMatrix();
     }
 
-    public static void renderCore(TileDefender tile, float partialTick) {
+    public void renderCore(TileDefender tile, double x, double y, double z, float partialTick) {
         GL11.glPushMatrix();
-        float scale = (1F / 16F);
+        ResourceHandler.bindResource("textures/models/defender.png");
         GL11.glRotated(180, 2, 0, 0);
+        RenderTileDefender.modelDefender.render();
+        
+        float ticks = ((float)Minecraft.getMinecraft().renderViewEntity.ticksExisted + partialTick) * tile.rotationSpeed;
+        if (tile.getWorldObj() != null)
+        {
+            GL11.glRotatef(ticks % 360.0F, 0.0F, 1.0F, 0.0F);
+            GL11.glRotatef(35.0F, 1.0F, 0.0F, 0.0F);
+            GL11.glRotatef(45.0F, 0.0F, 0.0F, 1.0F);
+        	/*
+            GL11.glRotatef(ticks % 360.0F * tile.rotation, 0.0F, 1.0F, 0.0F);
+            GL11.glRotatef(35.0F * tile.rotation, 1.0F, 0.0F, 0.0F);
+            GL11.glRotatef(45.0F * tile.rotation, 0.0F, 0.0F, 1.0F);
+            */
+        }    
+            
+        GL11.glTranslatef(-0.125F,0.125F,0.125F);
+        RenderTileDefender.modelDefender.renderCrystal(tile.crystalBrightness);
+        GL11.glPopMatrix();
 
         /*
         switch (tile.facingDirection) {
@@ -42,9 +62,8 @@ public class RenderTileDefender extends TileEntitySpecialRenderer {
             case 5:
                 GL11.glRotated(90, 0, 0, 1);
         }
-        */
 
-        ResourceHandler.bindResource("textures/models/defender.png");
+        
         modelDefender.render(null, 0F, 0F, 0F, 0F, 0F, scale);
         GL11.glEnable(GL11.GL_BLEND);
         //float rotation = tile.rotation + (partialTick * tile.rotationSpeed);
@@ -60,5 +79,6 @@ public class RenderTileDefender extends TileEntitySpecialRenderer {
         GL11.glDisable(GL11.GL_BLEND);
 
         GL11.glPopMatrix();
+        */
     }
 }

@@ -12,7 +12,6 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -108,7 +107,9 @@ public class Defender extends BlockOS {
     	TileDefender tile = (TileDefender) world.getTileEntity(x, y, z);
         if (tile != null) {
 	        if (!world.isRemote) {
-	        	player.addChatComponentMessage(new ChatComponentText(Float.toString(tile.rotation)));
+	        	//Do something here...
+	        	
+	        	//player.addChatComponentMessage(new ChatComponentText(Float.toString(tile.xAngle)));
 	            //FMLNetworkHandler.openGui(player, OrbitalSatellite.instance, GuiHandler.GUIID_ENERGY_INFUSER, world, x, y, z);
 	        }
         }

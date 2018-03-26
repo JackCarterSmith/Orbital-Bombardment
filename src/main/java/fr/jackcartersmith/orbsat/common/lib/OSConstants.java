@@ -42,7 +42,7 @@ public class OSConstants {
         config.load(); 
 	   
         try {
-        	enableLog = config.get("LOGGER", "EnableLog", true).getBoolean();
+        	enableLog = config.get("Logging", "EnableLog", true).getBoolean();
    	     
         	DesignatorCommitRange = config.get("Designator Max Range", "DesignatorCommitRange", 50).getInt();     
         	OverriderMaxCharge = config.get("Max Charge on Blocks", "OverriderMaxCharge", 50000).getInt();   	     

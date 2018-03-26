@@ -11,6 +11,7 @@ import fr.jackcartersmith.orbsat.client.handler.ClientEventHandler;
 import fr.jackcartersmith.orbsat.client.handler.ParticleHandler;
 import fr.jackcartersmith.orbsat.client.handler.ResourceHandler;
 import fr.jackcartersmith.orbsat.client.render.block.RenderDefender;
+import fr.jackcartersmith.orbsat.client.render.particle.ParticleLaserBeam;
 import fr.jackcartersmith.orbsat.client.render.tile.RenderTileDefender;
 import fr.jackcartersmith.orbsat.common.CommonProxy;
 import fr.jackcartersmith.orbsat.common.OSBlocks;
@@ -19,6 +20,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.ISound;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.item.Item;
+import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -208,6 +210,28 @@ public class ClientProxy extends CommonProxy {
         return beam;
     }
     */
+    
+    @Override
+    //public ParticleLaserBeam energyBeam(World worldObj, double x, double y, double z, double tx, double ty, double tz, int powerFlow, boolean advanced, ParticleLaserBeam oldBeam, boolean render, int beamType) {
+    public ParticleLaserBeam energyBeam(World worldObj, double x, double y, double z, double tx, double ty, double tz, int powerFlow, int pulseLenght, ParticleLaserBeam oldBeam, boolean render, int beamType) {
+        if (!worldObj.isRemote) return null;
+        ParticleLaserBeam beam = oldBeam;
+        boolean inRange = ParticleHandler.isInRange(x, y, z, 50) || ParticleHandler.isInRange(tx, ty, tz, 50);
+
+        if (beam == null || beam.isDead) {
+            if (inRange) {
+                beam = new ParticleLaserBeam(worldObj, x, y, z, tx, ty, tz, pulseLenght, powerFlow, beamType);
+
+                FMLClientHandler.instance().getClient().effectRenderer.addEffect(beam);
+            }
+        } else if (!inRange) {
+            beam.setDead();
+            return null;
+        } else {
+            beam.update(powerFlow, render);
+        }
+        return beam;
+    }
     
     public boolean isOp(String paramString) {
         return Minecraft.getMinecraft().theWorld.getWorldInfo().getGameType().isCreative();

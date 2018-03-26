@@ -9,6 +9,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import fr.jackcartersmith.orbsat.OrbitalSatellite;
 import fr.jackcartersmith.orbsat.client.gui.OSGuiHandler;
+import fr.jackcartersmith.orbsat.client.render.particle.ParticleLaserBeam;
 import fr.jackcartersmith.orbsat.common.handler.FMLEventHandler;
 import fr.jackcartersmith.orbsat.common.lib.OSConstants;
 import fr.jackcartersmith.orbsat.common.lib.OSRefs;
@@ -16,6 +17,7 @@ import fr.jackcartersmith.orbsat.common.network.TileObjectPacket;
 import fr.jackcartersmith.orbsat.common.tileentities.TileDefender;
 import fr.jackcartersmith.orbsat.common.utils.OSLogHelper;
 import net.minecraft.client.audio.ISound;
+import net.minecraft.world.World;
 
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
@@ -168,6 +170,11 @@ public class CommonProxy {
         return null;
     }
     */
+    
+    //public ParticleLaserBeam energyBeam(World worldObj, double x, double y, double z, double tx, double ty, double tz, int powerFlow, boolean advanced, ParticleLaserBeam oldBeam, boolean render, int beamType) {
+    public ParticleLaserBeam energyBeam(World worldObj, double x, double y, double z, double tx, double ty, double tz, int powerFlow, int pulseLenght, ParticleLaserBeam oldBeam, boolean render, int beamType) {
+        return null;
+    }
 
     public void spawnParticle(Object particle, int range) {}
 
