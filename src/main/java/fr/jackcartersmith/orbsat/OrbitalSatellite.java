@@ -16,7 +16,7 @@ import fr.jackcartersmith.orbsat.common.utils.OSLogHelper;
 public class OrbitalSatellite
 {
 	//============== DEBUG MODE ===============//
-    public static boolean debug = false;
+    public static boolean debug = true;
     //=========================================//
 	
 	@Mod.Instance(OSRefs.MODID)

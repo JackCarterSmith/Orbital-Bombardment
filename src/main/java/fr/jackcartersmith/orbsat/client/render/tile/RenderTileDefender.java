@@ -29,7 +29,7 @@ public class RenderTileDefender extends TileEntitySpecialRenderer {
         RenderTileDefender.modelDefender.render();
         
         float ticks = ((float)Minecraft.getMinecraft().renderViewEntity.ticksExisted + partialTick) * tile.rotationSpeed;
-        if (tile.getWorldObj() != null)
+        if (tile.getWorld() != null)
         {
             GL11.glRotatef(ticks % 360.0F, 0.0F, 1.0F, 0.0F);
             GL11.glRotatef(35.0F, 1.0F, 0.0F, 0.0F);
@@ -41,7 +41,7 @@ public class RenderTileDefender extends TileEntitySpecialRenderer {
             */
         }    
             
-        GL11.glTranslatef(-0.125F,0.125F,0.125F);
+        GL11.glTranslatef(0.3F,-0.22F,-0.3F);
         RenderTileDefender.modelDefender.renderCrystal(tile.crystalBrightness);
         GL11.glPopMatrix();
 

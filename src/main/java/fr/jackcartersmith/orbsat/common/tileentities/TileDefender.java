@@ -16,9 +16,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 public class TileDefender extends TileEntity {
     public float modelIllumination = 30F;
     public int facingDirection = ForgeDirection.UP.ordinal();
-    public boolean running = false;
-    public boolean runningCach = false;
-    public int pow = 75;
+    public boolean firing = false;
+    public int beamPow = 100;
     public float rotationSpeed = 4.0F;
     public float crystalBrightness = 1.0F;
 
@@ -28,23 +27,9 @@ public class TileDefender extends TileEntity {
     
     @Override
     public void updateEntity() { 	
-    	/*
-        if (this.rotation != 1.0F)
-        {
-            if (this.rotation < 1.0F)
-            {
-            	this.rotation += Math.max(this.rotation / 10.0F, 0.001F);
-            }
-
-            if ((double)this.rotation > 0.999D)
-            {
-            	this.rotation = 1.0F;
-            }
-        }
-        */
-        
+       
         if (worldObj.isRemote)
-        	beam = OrbitalSatellite.proxy.energyBeam(worldObj, this.xCoord + 0.52F, this.yCoord, this.zCoord + 0.48F, this.xCoord, this.yCoord + 1024, this.zCoord, pow, 8, beam, true, 0);
+        	beam = OrbitalSatellite.proxy.energyBeam(worldObj, this.xCoord + 0.52F, this.yCoord, this.zCoord + 0.48F, this.xCoord, this.yCoord + 1024, this.zCoord, beamPow, 8, beam, true, 0);
     	
         
         
@@ -116,7 +101,7 @@ public class TileDefender extends TileEntity {
 
     @Override
     public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
-        readFromNBT(pkt.func_148857_g());
+        readFromNBT(pkt.getNbtCompound());
     }
     
     /*

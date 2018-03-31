@@ -3,7 +3,7 @@ package fr.jackcartersmith.orbsat.common.lib;
 public class OSRefs {
     public static final String MODID = "orbsat";
     public static final String MODNAME = "Orbital Satellite";
-    public static final String VERSION = "0.1";
+    public static final String VERSION = "0.1.8";
     public static final String MCVERSION = "1.7.10";
     public static final String CLIENTPROXYLOCATION = "fr.jackcartersmith.orbsat.client.ClientProxy";
     public static final String SERVERPROXYLOCATION = "fr.jackcartersmith.orbsat.common.CommonProxy";

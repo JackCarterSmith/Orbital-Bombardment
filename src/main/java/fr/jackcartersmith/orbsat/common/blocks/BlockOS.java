@@ -31,7 +31,7 @@ public class BlockOS extends Block{
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
+    public void registerIcons(IIconRegister iconRegister) {
         this.blockIcon = iconRegister.registerIcon(OSRefs.RESOURCESPREFIX + getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
 }

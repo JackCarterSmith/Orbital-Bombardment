@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 public class Defender extends BlockOS {
 	public Defender() {
         super(Material.iron);
-        this.setBlockName(OSStrings.defenderName);
+        this.setUnlocalizedName(OSStrings.defenderName);
         this.setCreativeTab(OrbitalSatellite.OSCreaTab);
         this.setStepSound(soundTypeStone);
         OSBlocks.register(this);
@@ -26,7 +26,7 @@ public class Defender extends BlockOS {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public void registerBlockIcons(IIconRegister iconRegister) {
+    public void registerIcons(IIconRegister iconRegister) {
         blockIcon = iconRegister.registerIcon(OSRefs.RESOURCESPREFIX + "machine");
     }
     
