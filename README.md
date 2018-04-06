@@ -1,10 +1,18 @@
-# ORBITAL SATELLITE mod for Minecraft
+# ORBITAL SATELLITE - Pig Striker !!!
 
-Une reprise du mod (mort) ORBITAL BOMBARDMENT de la 1.6.4. Celui ci permet d'ajouter 
-au jeu de nouveaux blocs et items pour tirer de puissantes salves destructrices sur 
-vos fuc***** cochons !
+## Description
+Ce mod est une reprise du mod Orbital Bombardment de la 1.6.4.
 
-Bien sûr pour le moment je compte seulement porter le mod sur la 1.7.10/1.10.2. 
-Après peut être je continuerai à ajouter des élèments pour agrandir ces fonctionnalités.
+Il permet d'ajouter à vos mondes minecraft --de la pollution spatiale-- des satellites orbitaux assurant le support, la défense ou de la puissance offensive au joueur les utilisant. 
 
-En attente de plus détails...
+## Contenu
+*A DEV...*
+- Defender
+- Plateforme de lancement
+- Satellites
+- Super-calculateur
+- Plateforme de contrôle
+
+## Crédits
+Created by JackCarterSmith
+Inspired by Thaumcraft, Draconic Evolution and Immersive Engineering
