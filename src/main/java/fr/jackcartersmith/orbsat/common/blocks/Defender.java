@@ -111,6 +111,8 @@ public class Defender extends BlockOS {
 	        	
 	        	//player.addChatComponentMessage(new ChatComponentText(Float.toString(tile.xAngle)));
 	            //FMLNetworkHandler.openGui(player, OrbitalSatellite.instance, GuiHandler.GUIID_ENERGY_INFUSER, world, x, y, z);
+	        } else {
+	        	if (tile.firing != false) tile.firing = false; else tile.firing = true;
 	        }
         }
         world.markBlockForUpdate(x, y, z);

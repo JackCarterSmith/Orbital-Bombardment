@@ -13,6 +13,7 @@ import fr.jackcartersmith.orbsat.client.render.particle.ParticleLaserBeam;
 import fr.jackcartersmith.orbsat.common.handler.FMLEventHandler;
 import fr.jackcartersmith.orbsat.common.lib.OSConstants;
 import fr.jackcartersmith.orbsat.common.lib.OSRefs;
+import fr.jackcartersmith.orbsat.common.network.PhotonPacket;
 import fr.jackcartersmith.orbsat.common.network.TileObjectPacket;
 import fr.jackcartersmith.orbsat.common.tileentities.TileDefender;
 import fr.jackcartersmith.orbsat.common.utils.OSLogHelper;
@@ -51,33 +52,8 @@ public class CommonProxy {
         OrbitalSatellite.network = NetworkRegistry.INSTANCE.newSimpleChannel(OrbitalSatellite.networkChannelName);
         OrbitalSatellite.network.registerMessage(TileObjectPacket.Handler.class, TileObjectPacket.class, 0, Side.SERVER);
         OrbitalSatellite.network.registerMessage(TileObjectPacket.Handler.class, TileObjectPacket.class, 1, Side.CLIENT);
-        //OrbitalSatellite.network.registerMessage(OBNetwork.Handler.class, OBNetwork.class, 1, Side.SERVER);
-        //OrbitalSatellite.network.registerMessage(OBNetworkClient.Handler.class, OBNetworkClient.class, 2, Side.CLIENT);
-        
-        
-        
-        /*
-        DraconicEvolution.network.registerMessage(ButtonPacket.Handler.class, ButtonPacket.class, 0, Side.SERVER);
-        DraconicEvolution.network.registerMessage(ParticleGenPacket.Handler.class, ParticleGenPacket.class, 1, Side.SERVER);
-        DraconicEvolution.network.registerMessage(PlacedItemPacket.Handler.class, PlacedItemPacket.class, 2, Side.SERVER);
-        DraconicEvolution.network.registerMessage(PlayerDetectorButtonPacket.Handler.class, PlayerDetectorButtonPacket.class, 3, Side.SERVER);
-        DraconicEvolution.network.registerMessage(PlayerDetectorStringPacket.Handler.class, PlayerDetectorStringPacket.class, 4, Side.SERVER);
-        DraconicEvolution.network.registerMessage(TeleporterPacket.Handler.class, TeleporterPacket.class, 5, Side.SERVER);
-        DraconicEvolution.network.registerMessage(TileObjectPacket.Handler.class, TileObjectPacket.class, 6, Side.CLIENT);
-        DraconicEvolution.network.registerMessage(MountUpdatePacket.Handler.class, MountUpdatePacket.class, 7, Side.CLIENT);
-        DraconicEvolution.network.registerMessage(MountUpdatePacket.Handler.class, MountUpdatePacket.class, 8, Side.SERVER);
-        DraconicEvolution.network.registerMessage(ItemConfigPacket.Handler.class, ItemConfigPacket.class, 9, Side.SERVER);
-        DraconicEvolution.network.registerMessage(TileObjectPacket.Handler.class, TileObjectPacket.class, 10, Side.SERVER);
-        DraconicEvolution.network.registerMessage(BlockUpdatePacket.Handler.class, BlockUpdatePacket.class, 11, Side.SERVER);
-        DraconicEvolution.network.registerMessage(SpeedRequestPacket.Handler.class, SpeedRequestPacket.class, 12, Side.SERVER);
-        DraconicEvolution.network.registerMessage(SpeedRequestPacket.Handler.class, SpeedRequestPacket.class, 13, Side.CLIENT);
-        DraconicEvolution.network.registerMessage(ToolModePacket.Handler.class, ToolModePacket.class, 14, Side.SERVER);
-        DraconicEvolution.network.registerMessage(GenericParticlePacket.Handler.class, GenericParticlePacket.class, 15, Side.CLIENT);
-        DraconicEvolution.network.registerMessage(ShieldHitPacket.Handler.class, ShieldHitPacket.class, 16, Side.CLIENT);
-        DraconicEvolution.network.registerMessage(ContributorPacket.Handler.class, ContributorPacket.class, 17, Side.CLIENT);
-        DraconicEvolution.network.registerMessage(ContributorPacket.Handler.class, ContributorPacket.class, 18, Side.SERVER);
-        */
-
+        OrbitalSatellite.network.registerMessage(PhotonPacket.Handler.class, PhotonPacket.class, 10, Side.SERVER);
+        OrbitalSatellite.network.registerMessage(PhotonPacket.Handler.class, PhotonPacket.class, 11, Side.CLIENT);
     }
     
     public void registerTileEntities() {
