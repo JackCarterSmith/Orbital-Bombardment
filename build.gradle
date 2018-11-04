@@ -1,3 +1,8 @@
+import groovy.json.JsonOutput
+
+def mainVersion = "0.1"
+def buildNumber = "1"
+
 buildscript {
     repositories {
         jcenter()
@@ -11,9 +16,11 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "3.0"
-group = "fr.jackcartersmith.orbsat" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "orbsat"
+version = "${mainVersion}-${buildNumber}"
+//group = "fr.jackcartersmith.orbsat" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = "jackcartersmith"
+def archiveGroup = group
+archivesBaseName = "OrbitalSatellite"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {
@@ -21,7 +28,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.4.2705"
+    version = "1.12.2-14.23.5.2768"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
@@ -30,11 +37,40 @@ minecraft {
     // Use non-default mappings at your own risk. they may not always work.
     // simply re-run your setup task after changing the mappings to update your workspace.
     mappings = "stable_39"
+	//mappings = "snapshot_20171003"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
 repositories {
-    maven { url = "http://maven.cil.li/" }
+    maven { // JEI & Tinkers
+        name 'DVS1 Maven FS'
+        url 'http://dvs1.progwml6.com/files/maven'
+    }
+    maven { // HWYLA
+        name "TehNuts WAILA fork"
+        url "http://tehnut.info/maven"
+    }
+    maven { // OpenComputers
+        name "OpenComputers"
+        url "http://maven.cil.li/"
+    }
+    repositories {//Curseforge maven, in case some other maven goes offline
+        maven {
+            name = "CurseForge"
+            url = "https://minecraft.curseforge.com/api/maven/"
+        }
+    }
+    /*maven { //IC2
+        name = "ic2"
+        url = "http://maven.ic2.player.to/"
+    }*/
+    maven { // Redstone Flux
+        name 'CoFH Maven'
+        url "http://maven.covers1624.net/"
+    }
+    maven { // Albedo Lights
+        url 'https://repo.elytradev.com/'
+    }
 }
 
 dependencies {
@@ -42,7 +78,6 @@ dependencies {
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
     //compile "some.group:artifact:version"
-	compile "li.cil.oc:OpenComputers:MC1.12.2-1.7.+:api"
       
     // real examples
     //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
@@ -59,6 +94,14 @@ dependencies {
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+	
+    compileOnly "mezz.jei:jei_1.12.2:4.10.+"
+    compileOnly "cofh:RedstoneFlux:1.12-2.+:deobf"
+    compileOnly "opencomputers:OpenComputers:MC1.12.2:1.7.2.67"//li.cil.oc:OpenComputers:MC1.12.1-1.7.0.+"
+    compileOnly "mcp.mobius.waila:Hwyla:1.8.20-B35_1.12"
+    compileOnly 'industrial-craft:industrialcraft-2:release:ex112'//'net.industrial-craft:industrialcraft-2:2.8.+'
+    compileOnly 'baubles:Baubles:1.12:1.5.2'
+    deobfCompile 'elucent:albedo:2.0-SNAPSHOT'
 
 }
 
@@ -69,14 +112,14 @@ processResources {
 
     // replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-                
+        include "mcmod.info"
+
         // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+        expand "version": project.version, "mcversion": "1.12"
     }
-        
-    // copy everything else except the mcmod.info
+
+    // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
+        exclude "mcmod.info"
     }
 }

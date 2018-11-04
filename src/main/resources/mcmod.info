@@ -1,16 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "orbsat",
+  "name": "Orbital Satellite",
+  "description": "Multi-usage satellite with control center and launch bay.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
-  "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["JackCarterSmith"],
+  "credits": "Thanks for Forge community, Discord and BluSunrize!",
   "logoFile": "",
-  "screenshots": [],
   "dependencies": []
 }
 ]
