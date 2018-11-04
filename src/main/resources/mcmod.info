@@ -1,15 +1,14 @@
 [
 {
   "modid": "orbsat",
-  "version": "0.1",
-  "name": "Orbital Bombardment",
-  "description": "TO DO ...",
+  "name": "Orbital Satellite",
+  "description": "Multi-usage satellite with control center and launch bay.",
+  "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
-  "updateUrl": "",
   "authorList": ["JackCarterSmith"],
+  "credits": "Thanks for Forge community, Discord and BluSunrize!",
   "logoFile": "",
-  "screenshots": [],
   "dependencies": []
 }
 ]
