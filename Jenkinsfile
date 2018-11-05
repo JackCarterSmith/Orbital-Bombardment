@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
+        ws(dir: 'orbsat')
         sh './gradlew setupCIWorkspace'
       }
     }
