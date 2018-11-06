@@ -1,20 +1,29 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'maître'
+    }
+
+  }
   stages {
     stage('Setup') {
       steps {
-        ws(dir: 'orbsat')
         sh './gradlew setupCIWorkspace'
       }
     }
-    stage('Compilation') {
+    stage('Checking code') {
+      steps {
+        sh './gradlew check'
+      }
+    }
+    stage('Compile') {
       steps {
         sh './gradlew build'
       }
     }
-    stage('Release') {
+    stage('JAR release') {
       steps {
-        echo 'Compilation done.'
+        sh './gradlew jar'
       }
     }
   }
