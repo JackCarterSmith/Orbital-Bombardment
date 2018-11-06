@@ -8,33 +8,28 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        sh '''chmod +x gradlew
-./gradlew setupCIWorkspace'''
+        sh 'chmod +x gradlew'
+        sh './gradlew setupCIWorkspace'
       }
     }
-    stage('Checking code') {
+    stage('Check') {
       steps {
         sh './gradlew check'
       }
     }
     stage('Compile') {
       steps {
-        sh './gradlew build'
+        node(label: 'main') {
+          sh './gradlew build'
+        }
+
       }
     }
     stage('JAR release') {
-      parallel {
-        stage('JAR release') {
-          steps {
-            sh './gradlew jar'
-            archiveArtifacts(artifacts: 'build/libs/OrbitalSatellite-*.jar', excludes: 'build/libs/OrbitalSatellite-*-sources.jar')
-          }
-        }
-        stage('Test') {
-          steps {
-            sh './gradlew test'
-          }
-        }
+      steps {
+        sh './gradlew jar'
+        archiveArtifacts(artifacts: 'build/libs/OrbitalSatellite-*.jar', excludes: 'build/libs/OrbitalSatellite-*-sources.jar')
+        cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenSuccess: true, cleanWhenUnstable: true, cleanupMatrixParent: true, deleteDirs: true)
       }
     }
   }
