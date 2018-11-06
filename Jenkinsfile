@@ -8,7 +8,9 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        sh './gradlew setupCIWorkspace'
+        sh '''pwd
+ls -la
+./gradlew setupCIWorkspace'''
       }
     }
     stage('Checking code') {
