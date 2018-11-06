@@ -38,6 +38,6 @@ pipeline {
     }
   }
   environment {
-    JAVA_HOME = '/usr/java/jre1.8.0_192'
+    JAVA_HOME = '/usr/lib/jvm/java-8-openjdk-amd64'
   }
 }
