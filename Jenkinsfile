@@ -27,7 +27,7 @@ pipeline {
         stage('JAR release') {
           steps {
             sh './gradlew jar'
-            archiveArtifacts 'OrbitalSatellite-*.jar'
+            archiveArtifacts(artifacts: 'build/libs/OrbitalSatellite-*.jar', excludes: 'build/libs/OrbitalSatellite-*-sources.jar')
           }
         }
         stage('Test') {
