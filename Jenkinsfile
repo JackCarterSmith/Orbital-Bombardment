@@ -8,9 +8,7 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        sh '''pwd
-ls -la
-chmod -R 777 .
+        sh '''chmod +x gradlew
 ./gradlew setupCIWorkspace'''
       }
     }
@@ -25,9 +23,21 @@ chmod -R 777 .
       }
     }
     stage('JAR release') {
-      steps {
-        sh './gradlew jar'
+      parallel {
+        stage('JAR release') {
+          steps {
+            sh './gradlew jar'
+          }
+        }
+        stage('Test') {
+          steps {
+            sh './gradlew test'
+          }
+        }
       }
     }
+  }
+  environment {
+    JAVA_HOME = '/usr/java/jre1.8.0_192'
   }
 }
