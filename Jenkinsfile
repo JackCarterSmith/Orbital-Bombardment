@@ -19,10 +19,8 @@ pipeline {
     }
     stage('Compile') {
       steps {
-        node(label: 'main') {
-          sh './gradlew build'
-        }
-
+        sh '''./gradlew clean
+./gradlew build'''
       }
     }
     stage('JAR release') {
