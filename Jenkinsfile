@@ -10,6 +10,7 @@ pipeline {
       steps {
         sh '''pwd
 ls -la
+chmod -R 777 .
 ./gradlew setupCIWorkspace'''
       }
     }
