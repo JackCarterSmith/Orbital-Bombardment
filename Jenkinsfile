@@ -27,6 +27,7 @@ pipeline {
         stage('JAR release') {
           steps {
             sh './gradlew jar'
+            archiveArtifacts 'OrbitalSatellite-*.jar'
           }
         }
         stage('Test') {
