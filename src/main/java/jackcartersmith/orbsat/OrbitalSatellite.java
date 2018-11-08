@@ -1,18 +1,32 @@
 package jackcartersmith.orbsat;
 
+import jackcartersmith.orbsat.common.util.ConfigManager;
 import jackcartersmith.orbsat.common.CommonProxy;
+import jackcartersmith.orbsat.common.EventHandler;
+import jackcartersmith.orbsat.common.OrbsatContents;
+import jackcartersmith.orbsat.common.OrbsatSaveData;
+import jackcartersmith.orbsat.common.commands.CommandHandler;
+import jackcartersmith.orbsat.common.compat.OrbsatCompatModule;
 import jackcartersmith.orbsat.common.util.LogHelper;
+import jackcartersmith.orbsat.common.util.network.MessageRequestBlockUpdate;
+import jackcartersmith.orbsat.common.util.network.MessageTileSync;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
+import net.minecraftforge.fml.common.event.FMLModIdMappingEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartedEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = OrbitalSatellite.MODID, name = OrbitalSatellite.NAME, version = OrbitalSatellite.VERSION, dependencies = "required-after:forge@[14.23.5.2768,)")
 public class OrbitalSatellite {
@@ -27,24 +41,93 @@ public class OrbitalSatellite {
 	
 	public static final SimpleNetworkWrapper packetHandler = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
 
-    @EventHandler
+    @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
     	LogHelper.logger = event.getModLog();
+    	ConfigManager.preInit(event);
+    	proxy.init();
+    	
+    	OrbsatContents.preInit();
+    	//IEAdvancements.preInit();
+    	OrbsatCompatModule.doModulesPreInit();
     }
 
-    @EventHandler
+    @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
-        // some example code
-    	LogHelper.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+        proxy.preInitEnd();
+        OrbsatContents.init();
+        
+        MinecraftForge.EVENT_BUS.register(new EventHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(instance, proxy);
+		proxy.init();
+		
+		//IESounds.init();
+		
+		OrbsatCompatModule.doModulesInit();
+		proxy.initEnd();
+		
+		int messageId = 0;
+		packetHandler.registerMessage(MessageTileSync.HandlerServer.class, MessageTileSync.class, messageId++, Side.SERVER);
+		packetHandler.registerMessage(MessageTileSync.HandlerClient.class, MessageTileSync.class, messageId++, Side.CLIENT);
+		packetHandler.registerMessage(MessageRequestBlockUpdate.Handler.class, MessageRequestBlockUpdate.class, messageId++, Side.SERVER);
     }
     
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		
+		OrbsatContents.postInit();
+		proxy.postInit();
+		OrbsatCompatModule.doModulesPostInit();
+		proxy.postInitEnd();
 	}
+	
+	@Mod.EventHandler
+	public void loadComplete(FMLLoadCompleteEvent event)
+	{
+		OrbsatCompatModule.doModulesLoadComplete();
+	}
+	
+	@Mod.EventHandler
+	public void serverStarting(FMLServerStartingEvent event)
+	{
+		proxy.serverStarting();
+		event.registerServerCommand(new CommandHandler(false));
+	}
+	
+	@Mod.EventHandler
+	public void serverStarted(FMLServerStartedEvent event)
+	{
+		if(FMLCommonHandler.instance().getEffectiveSide()==Side.SERVER)
+		{
+			World world = FMLCommonHandler.instance().getMinecraftServerInstance().getEntityWorld();
+			if(!world.isRemote)
+			{
+				LogHelper.info("WorldData loading");
+
+				/*
+				//Clear out any info from previous worlds
+				for(int dim : ImmersiveNetHandler.INSTANCE.getRelevantDimensions())
+					ImmersiveNetHandler.INSTANCE.clearAllConnections(dim);
+				*/
+				OrbsatSaveData worldData = (OrbsatSaveData)world.loadData(OrbsatSaveData.class, OrbsatSaveData.dataName);
+
+				if(worldData==null)
+				{
+					LogHelper.info("WorldData not found");
+					worldData = new OrbsatSaveData(OrbsatSaveData.dataName);
+					world.setData(OrbsatSaveData.dataName, worldData);
+				}
+				else
+					LogHelper.info("WorldData retrieved");
+				OrbsatSaveData.setInstance(world.provider.getDimension(), worldData);
+			}
+		}
+	}
+
+	@Mod.EventHandler
+	public void modIDMapping(FMLModIdMappingEvent event) {}
 	
 	public static CreativeTabs creativeTab = new CreativeTabs(MODID)
 	{

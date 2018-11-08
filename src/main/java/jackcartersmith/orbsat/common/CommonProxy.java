@@ -2,21 +2,11 @@ package jackcartersmith.orbsat.common;
 
 import java.util.UUID;
 
-import javax.annotation.Nonnull;
-
 import com.mojang.authlib.GameProfile;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.common.property.IExtendedBlockState;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 
@@ -53,6 +43,19 @@ public class CommonProxy implements IGuiHandler {
 	{
 	}
 
+	@Override
+	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
 	public static <T extends TileEntity & IGuiTile> void openGuiForTile(@Nonnull EntityPlayer player, @Nonnull T tile)
 	{
 		player.openGui(OrbitalSatellite.instance, tile.getGuiID(), tile.getWorld(), tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ());
@@ -190,6 +193,7 @@ public class CommonProxy implements IGuiHandler {
 	public void drawFluidPumpTop()
 	{
 	}
+	*/
 
 	public String[] splitStringOnWidth(String s, int w)
 	{

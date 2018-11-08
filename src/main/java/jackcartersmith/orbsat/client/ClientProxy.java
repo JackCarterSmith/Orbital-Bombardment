@@ -6,5 +6,5 @@ import net.minecraftforge.fml.relauncher.Side;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy{
-
+	//public static IEItemFontRender itemFont;
 }
