@@ -1,8 +1,5 @@
 import groovy.json.JsonOutput
 
-def mainVersion = "0.1"
-def buildNumber = "1"
-
 buildscript {
     repositories {
         jcenter()
@@ -16,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "${mainVersion}-${buildNumber}"
+version = "0.1.3"
 //group = "fr.jackcartersmith.orbsat" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 group = "jackcartersmith"
 def archiveGroup = group
@@ -123,3 +120,20 @@ processResources {
         exclude "mcmod.info"
     }
 }
+
+task signJar(type: SignJar, dependsOn: reobfJar) {
+    onlyIf { // Skip the task if our secret data isn't available
+        project.hasProperty('keyStore')
+    }
+    dependsOn reobfJar
+    if (project.hasProperty('keyStore')) { // This needs to be a path to the keystore file
+        keyStore = project.keyStore
+        alias = project.keyStoreAlias
+        storePass = project.keyStorePass
+        keyPass = project.keyStoreKeyPass
+        inputFile = jar.archivePath
+        outputFile = jar.archivePath
+    }
+}
+
+build.dependsOn signJar
