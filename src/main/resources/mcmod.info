@@ -3,7 +3,7 @@
   "modid": "orbsat",
   "name": "Orbital Satellite",
   "description": "Multi-usage satellite with control center and launch bay.",
-  "version": "${version}",
+  "version": "0.1.3",
   "mcversion": "${mcversion}",
   "url": "",
   "authorList": ["JackCarterSmith"],
