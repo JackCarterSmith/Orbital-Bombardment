@@ -1,7 +1,7 @@
 pipeline {
   agent {
-    node {
-      label 'main'
+    docker {
+      image 'jackcartersmith/gradle_mc:stable'
     }
 
   }
@@ -12,26 +12,18 @@ pipeline {
         sh './gradlew setupCIWorkspace'
       }
     }
-    stage('Check') {
-      steps {
-        sh './gradlew check'
-      }
-    }
     stage('Compile') {
       steps {
-        sh '''./gradlew clean
-./gradlew build'''
+        sh './gradlew clean'
+        sh './gradlew check'
+        sh './gradlew build'
       }
     }
     stage('JAR release') {
       steps {
-        sh './gradlew jar'
         archiveArtifacts(artifacts: 'build/libs/OrbitalSatellite-*.jar', excludes: 'build/libs/OrbitalSatellite-*-sources.jar')
         cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenSuccess: true, cleanWhenUnstable: true, cleanupMatrixParent: true, deleteDirs: true)
       }
     }
-  }
-  environment {
-    JAVA_HOME = '/usr/lib/jvm/java-8-openjdk-amd64'
   }
 }
