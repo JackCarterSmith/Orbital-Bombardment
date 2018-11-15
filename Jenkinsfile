@@ -13,15 +13,11 @@ pipeline {
         sh './gradlew setupCIWorkspace'
       }
     }
-    stage('Check') {
-      steps {
-        sh './gradlew check'
-      }
-    }
     stage('Compile') {
       steps {
-        sh '''./gradlew clean
-./gradlew build'''
+        sh './gradlew clean'
+        sh './gradlew check'
+        sh './gradlew build'
       }
     }
     stage('JAR release') {
