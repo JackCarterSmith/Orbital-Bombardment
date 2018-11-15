@@ -2,15 +2,17 @@ pipeline {
   agent {
     docker {
       image 'jackcartersmith/gradle_mc:latest'
-      args '-v /var/lib/jenkins/workspace/docker-shared:~/root'
     }
 
   }
   stages {
     stage('Setup') {
       steps {
-        sh 'chmod u+x gradlew'
+        sh '''
+
+cd /var/lib/jenkins/workspace/Orbital-Satellite_*'''
         sh './gradlew setupCIWorkspace'
+        sh 'chmod u+x gradlew'
       }
     }
     stage('Check') {
@@ -26,13 +28,10 @@ pipeline {
     }
     stage('JAR release') {
       steps {
-        archiveArtifacts(artifacts: '/var/lib/jenkins/workspace/docker-shared/Orbital-Satellite/build/libs/OrbitalSatellite-*.jar', excludes: '/var/lib/jenkins/workspace/docker-shared/Orbital-Satellite/build/libs/OrbitalSatellite-*-sources.jar')
+        archiveArtifacts(artifacts: '/var/lib/jenkins/workspace/Orbital-Satellite_*/build/libs/OrbitalSatellite-*.jar', excludes: '/var/lib/jenkins/workspace/Orbital-Satellite_*/build/libs/OrbitalSatellite-*-sources.jar')
         sh 'rm -r -f /var/lib/jenkins/workspace/docker-shared/.*'
         cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenSuccess: true, cleanWhenUnstable: true, cleanupMatrixParent: true, deleteDirs: true)
       }
     }
-  }
-  environment {
-    JAVA_HOME = '/usr/lib/jvm/java-8-openjdk-amd64'
   }
 }
