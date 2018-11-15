@@ -22,9 +22,16 @@ pipeline {
     }
     stage('JAR release') {
       steps {
-        archiveArtifacts(artifacts: 'build/libs/OrbitalSatellite-*.jar', excludes: 'build/libs/OrbitalSatellite-*-source.jar')
+        archiveArtifacts(artifacts: 'build/libs/OrbitalSatellite-*.jar', excludes: 'build/libs/OrbitalSatellite-*-sources.jar')
         cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenSuccess: true, cleanWhenUnstable: true, cleanupMatrixParent: true, deleteDirs: true)
       }
     }
+  }
+  post {
+    always {
+      junit 'build/reports/**/*.xml'
+
+    }
+
   }
 }
