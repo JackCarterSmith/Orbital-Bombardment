@@ -7,6 +7,12 @@ pipeline {
   }
   stages {
     stage('Setup') {
+      agent {
+        docker {
+          image 'jackcartersmith/gradle_mc:dev'
+        }
+
+      }
       steps {
         sh '''
 
@@ -16,17 +22,35 @@ cd /var/lib/jenkins/workspace/Orbital-Satellite_*'''
       }
     }
     stage('Check') {
+      agent {
+        docker {
+          image 'jackcartersmith/gradle_mc:dev'
+        }
+
+      }
       steps {
         sh './gradlew check'
       }
     }
     stage('Compile') {
+      agent {
+        docker {
+          image 'jackcartersmith/gradle_mc:dev'
+        }
+
+      }
       steps {
         sh '''./gradlew clean
 ./gradlew build'''
       }
     }
     stage('JAR release') {
+      agent {
+        docker {
+          image 'jackcartersmith/gradle_mc:dev'
+        }
+
+      }
       steps {
         archiveArtifacts(artifacts: 'build/libs/OrbitalSatellite-*.jar', excludes: 'build/libs/OrbitalSatellite-*-source.jar')
         cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenSuccess: true, cleanWhenUnstable: true, cleanupMatrixParent: true, deleteDirs: true)
