@@ -2,6 +2,7 @@ pipeline {
   agent {
     docker {
       image 'jackcartersmith/gradle_mc:stable'
+      args '-v /var/lib/jenkins/.gradle:/root/.gradle'
     }
 
   }
