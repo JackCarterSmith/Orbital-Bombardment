@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'jackcartersmith/gradle_mc:dev'
+      image 'jackcartersmith/gradle_mc:latest'
     }
 
   }
@@ -26,12 +26,5 @@ pipeline {
         cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenSuccess: true, cleanWhenUnstable: true, cleanupMatrixParent: true, deleteDirs: true)
       }
     }
-  }
-  post {
-    always {
-      junit 'build/reports/**/*.xml'
-
-    }
-
   }
 }
