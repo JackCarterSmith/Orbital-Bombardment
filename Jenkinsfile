@@ -28,9 +28,7 @@ cd /var/lib/jenkins/workspace/Orbital-Satellite_*'''
     }
     stage('JAR release') {
       steps {
-        sh '''pwd
-ls'''
-        archiveArtifacts(artifacts: 'build/libs/OrbitalSatellite-*.jar', excludes: 'build/libs/OrbitalSatellite-*.jar')
+        archiveArtifacts(artifacts: 'build/libs/OrbitalSatellite-*.jar', excludes: 'build/libs/OrbitalSatellite-*-source.jar')
         cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenSuccess: true, cleanWhenUnstable: true, cleanupMatrixParent: true, deleteDirs: true)
       }
     }
