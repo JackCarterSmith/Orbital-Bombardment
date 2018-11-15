@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'jackcartersmith/gradle_mc:dev'
+      image 'jackcartersmith/gradle_mc:latest'
     }
 
   }
@@ -28,7 +28,7 @@ cd /var/lib/jenkins/workspace/Orbital-Satellite_*'''
     }
     stage('JAR release') {
       steps {
-        archiveArtifacts(artifacts: 'build/libs/OrbitalSatellite-*.jar', excludes: 'build/libs/OrbitalSatellite-*.jar')
+        archiveArtifacts(artifacts: '/var/lib/jenkins/workspace/Orbital-Satellite_*/build/libs/OrbitalSatellite-*.jar', excludes: '/var/lib/jenkins/workspace/Orbital-Satellite_*/build/libs/OrbitalSatellite-*.jar')
         cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenSuccess: true, cleanWhenUnstable: true, cleanupMatrixParent: true, deleteDirs: true)
       }
     }
