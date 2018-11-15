@@ -11,8 +11,8 @@ pipeline {
         sh '''
 
 cd /var/lib/jenkins/workspace/Orbital-Satellite_*'''
-        sh './gradlew setupCIWorkspace'
         sh 'chmod u+x gradlew'
+        sh './gradlew setupCIWorkspace'
       }
     }
     stage('Check') {
