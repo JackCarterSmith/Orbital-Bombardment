@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'jackcartersmith/gradle_mc:dev'
+      image 'jackcartersmith/gradle_mc:stable_1.12'
     }
 
   }
