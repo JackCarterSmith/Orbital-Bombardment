@@ -1,4 +1,5 @@
 # ORBITAL SATELLITE - Pig Striker !!!
+[![Build Status](https://ci.jcsmith.fr/job/OrbitalSatellite/badge/icon)](https://ci.jcsmith.fr/job/OrbitalSatellite/)
 
 ## Description
 Ce mod est une reprise du mod Orbital Bombardment de la 1.6.4.
