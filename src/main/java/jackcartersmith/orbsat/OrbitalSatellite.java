@@ -30,7 +30,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = OrbitalSatellite.MODID, name = OrbitalSatellite.NAME, version = OrbitalSatellite.VERSION, modLanguage = "java", 
-		certificateFingerprint = "3ce4f2265ef35e83d8d32f87fa6394a56e9b0e49", dependencies = "required-after:forge@[14.23.5.2768,)")
+certificateFingerprint = "30f9f06606e9ab799c59ec743cab264c8310531d", dependencies = "required-after:forge@[14.23.5.2838,)")
 public class OrbitalSatellite {
     public static final String MODID = "orbsat";
     public static final String NAME = "Orbital Satellite";

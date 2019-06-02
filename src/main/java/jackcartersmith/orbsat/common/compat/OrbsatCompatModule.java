@@ -18,7 +18,6 @@ public abstract class OrbsatCompatModule {
 	
 	static
 	{
-		moduleClasses.put("albedo", AlbedoHelper.class);
 		//moduleClasses.put("baubles", BaublesHelper.class);
 		//moduleClasses.put("opencomputers", OCHelper.class);
 		moduleClasses.put("waila", WailaHelper.class);
