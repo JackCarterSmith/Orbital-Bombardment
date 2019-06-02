@@ -34,9 +34,9 @@ repositories {
         name = "ic2"
         url = "http://maven.ic2.player.to/"
     }*/
-    maven { // Redstone Flux
-        name 'CoFH Maven'
-        url "http://maven.covers1624.net/"
+    maven {
+        name = "CoFH Maven"
+        url = "http://maven.covers1624.net"
     }
 }
 
@@ -88,13 +88,29 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 	
-    compileOnly "mezz.jei:jei_1.12.2:4.10.+"
-    compileOnly "cofh:RedstoneFlux:1.12-2.+:deobf"
+    compile "mezz.jei:jei_1.12.2:4.10.+:api"
+    deobfCompile "cofh:RedstoneFlux:1.12-2.1.0.6:universal"
     compile "li.cil.oc:OpenComputers:MC1.12.2-1.7.+:api"
     compile "mcp.mobius.waila:Hwyla:1.8.26-B41_1.12.2:api"
     //compileOnly 'industrial-craft:industrialcraft-2:release:ex112'//'net.industrial-craft:industrialcraft-2:2.8.+'
     //compileOnly 'baubles:Baubles:1.12:1.5.2'
 }
+
+task signJar(type: SignJar, dependsOn: reobfJar) {
+    onlyIf { // Skip the task if our secret data isn't available
+        project.hasProperty('keyStore')
+    }
+    dependsOn reobfJar
+    if (project.hasProperty('keyStore')) { // This needs to be a path to the keystore file
+        keyStore = project.keyStore
+        alias = project.keyStoreAlias
+        storePass = project.keyStorePass
+        keyPass = project.keyStoreKeyPass
+        inputFile = jar.archivePath
+        outputFile = jar.archivePath
+    }
+}
+build.dependsOn signJar
 
 processResources {
     // this will ensure that this task is redone when the versions change.
