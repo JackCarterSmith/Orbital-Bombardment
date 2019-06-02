@@ -50,7 +50,7 @@ if (System.getenv("BUILD_NUMBER") != null) {
 
 version = "$baseVersion.$buildNumber"
 group = "fr.jackcartersmith.orbsat"
-archivesBaseName = "OrbitalSatellite"
+archivesBaseName = "OrbitalSatellite-$project.minecraftVersion"
 
 sourceCompatibility = targetCompatibility = 1.8
 compileJava {
