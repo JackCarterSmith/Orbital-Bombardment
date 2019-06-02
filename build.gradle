@@ -130,20 +130,3 @@ processResources {
         exclude "mcmod.info"
     }
 }
-
-task signJar(type: SignJar, dependsOn: reobfJar) {
-    onlyIf { // Skip the task if our secret data isn't available
-        project.hasProperty('keyStore')
-    }
-    dependsOn reobfJar
-    if (project.hasProperty('keyStore')) { // This needs to be a path to the keystore file
-        keyStore = project.keyStore
-        alias = project.keyStoreAlias
-        storePass = project.keyStorePass
-        keyPass = project.keyStoreKeyPass
-        inputFile = jar.archivePath
-        outputFile = jar.archivePath
-    }
-}
-
-build.dependsOn signJar
