@@ -5,8 +5,8 @@
   "description": "Use orbital satellite to enhance your gameplay: teleport, defense, heal, scan...",
   "version": "0.0.1",
   "mcversion": "${mcversion}",
-  "url": "mcmods.jcsmith.fr/orbsat/",
-  "updateJSON": "mcmods.jcsmith.fr/orbsat/versions.json"
+  "url": "https://mcmods.jcsmith.fr/orbsat/",
+  "updateJSON": "https://mcmods.jcsmith.fr/orbsat/versions.json",
   "authorList": ["JackCarterSmith"],
   "credits": "Thanks for Forge community, Discord and BluSunrize!",
   "logoFile": "assets/orbsat/textures/logo.png",
