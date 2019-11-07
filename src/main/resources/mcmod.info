@@ -2,13 +2,14 @@
 {
   "modid": "orbsat",
   "name": "Orbital Satellite",
-  "description": "Multi-usage satellite with control center and launch bay.",
-  "version": "0.1.3",
+  "description": "Use orbital satellite to enhance your gameplay: teleport, defense, heal, scan...",
+  "version": "0.0.1",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "mcmods.jcsmith.fr/orbsat/",
+  "updateJSON": "mcmods.jcsmith.fr/orbsat/versions.json"
   "authorList": ["JackCarterSmith"],
   "credits": "Thanks for Forge community, Discord and BluSunrize!",
-  "logoFile": "",
+  "logoFile": "assets/orbsat/textures/logo.png",
   "dependencies": []
 }
 ]

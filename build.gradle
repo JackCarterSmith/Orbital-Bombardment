@@ -62,8 +62,8 @@ minecraft {
     runDir = "eclipse"
     
     mappings = "stable_39"
-	//mappings = "snapshot_20171003"
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+	//mappings = "snapshot_20180814"
+    makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
 dependencies {

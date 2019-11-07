@@ -1,33 +1,14 @@
 package jackcartersmith.orbsat;
 
-import jackcartersmith.orbsat.common.util.ConfigManager;
-import jackcartersmith.orbsat.common.CommonProxy;
-import jackcartersmith.orbsat.common.EventHandler;
-import jackcartersmith.orbsat.common.OrbsatContents;
-import jackcartersmith.orbsat.common.OrbsatSaveData;
-import jackcartersmith.orbsat.common.commands.CommandHandler;
-import jackcartersmith.orbsat.common.compat.OrbsatCompatModule;
-import jackcartersmith.orbsat.common.util.LogHelper;
-import jackcartersmith.orbsat.common.util.network.MessageRequestBlockUpdate;
-import jackcartersmith.orbsat.common.util.network.MessageTileSync;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLFingerprintViolationEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.common.event.FMLModIdMappingEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartedEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = OrbitalSatellite.MODID, name = OrbitalSatellite.NAME, version = OrbitalSatellite.VERSION, modLanguage = "java", 
 certificateFingerprint = "30f9f06606e9ab799c59ec743cab264c8310531d", dependencies = "required-after:forge@[14.23.5.2838,)")
@@ -85,12 +66,15 @@ public class OrbitalSatellite {
 		proxy.postInitEnd();
 	}
 	
+	/*
 	@Mod.EventHandler
 	public void loadComplete(FMLLoadCompleteEvent event)
 	{
 		OrbsatCompatModule.doModulesLoadComplete();
 	}
+	*/
 	
+	/*
 	@Mod.EventHandler
 	public void serverStarting(FMLServerStartingEvent event)
 	{
@@ -108,11 +92,10 @@ public class OrbitalSatellite {
 			{
 				LogHelper.info("WorldData loading");
 
-				/*
 				//Clear out any info from previous worlds
-				for(int dim : ImmersiveNetHandler.INSTANCE.getRelevantDimensions())
-					ImmersiveNetHandler.INSTANCE.clearAllConnections(dim);
-				*/
+				//for(int dim : ImmersiveNetHandler.INSTANCE.getRelevantDimensions())
+				//	ImmersiveNetHandler.INSTANCE.clearAllConnections(dim);
+				
 				OrbsatSaveData worldData = (OrbsatSaveData)world.loadData(OrbsatSaveData.class, OrbsatSaveData.dataName);
 
 				if(worldData==null)
@@ -127,6 +110,7 @@ public class OrbitalSatellite {
 			}
 		}
 	}
+	*/
 
 	@Mod.EventHandler
 	public void modIDMapping(FMLModIdMappingEvent event) {}
@@ -150,6 +134,7 @@ public class OrbitalSatellite {
 	@Mod.EventHandler
 	public void wrongSignature(FMLFingerprintViolationEvent event)
 	{
-		System.out.println("[OrbSat/Error] THIS IS NOT AN OFFICIAL BUILD OF ORBITAL SATELLITE! Found these fingerprints: "+event.getFingerprints());
+		if (!event.isDirectory())
+			System.out.println("[ORBSAT][CAUTION] THIS IS NOT AN OFFICIAL BUILD OF ORBITAL SATELLITE! Unvalid file " + event.getSource().getName());
 	}
 }
