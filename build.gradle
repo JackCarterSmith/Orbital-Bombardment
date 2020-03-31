@@ -48,9 +48,9 @@ if (System.getenv("BUILD_NUMBER") != null) {
 
 }
 
-version = "$baseVersion.$buildNumber"
+version = "$project.minecraftVersion-$baseVersion.$buildNumber"
 group = "fr.jackcartersmith.orbsat"
-archivesBaseName = "OrbitalSatellite-$project.minecraftVersion"
+archivesBaseName = "OrbitalSatellite"
 
 sourceCompatibility = targetCompatibility = 1.8
 compileJava {
@@ -61,8 +61,8 @@ minecraft {
     version = "$project.minecraftVersion-$project.forgeVersion"
     runDir = "eclipse"
     
-    mappings = "stable_39"
-	//mappings = "snapshot_20180814"
+    //mappings = "stable_39"
+	mappings = "snapshot_20180814"
     makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
