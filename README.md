@@ -16,4 +16,4 @@ Il permet d'ajouter à vos mondes minecraft ~~de la pollution spatiale~~ des sat
 
 ## Crédits
 Created by JackCarterSmith
-Inspired by Thaumcraft, Draconic Evolution and Immersive Engineering
+Inspired by the work of BluSunrize
